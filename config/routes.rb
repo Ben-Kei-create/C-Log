@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
+
 namespace :admin do
 # resources :items, only: [:index, :new, :create, :show, :edit, :update]
 # resources :customers, only: [:index, :show, :edit, :update]
@@ -24,19 +33,10 @@ scope module: :public do
 # resources :addresses, only: [:new, :index, :show, :create, :update, :destroy, :edit]
 # get 'customers/unsubscribe' => 'customers#unsubscribe'
 # get 'customers/information' => 'customers#show'
-# resources :customers, only: [:show, :edit, :update, :destroy]
+ resources :customers, only: [:show, ]
 # get 'orders/confirm' => 'orders#confirm'
 # patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 # post 'orders/confirm' => 'orders#confirm'
 # post 'customers/information' => 'customers#new'
  end
-
-devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
-
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-}
 end

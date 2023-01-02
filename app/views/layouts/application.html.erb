@@ -1,101 +1,104 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCake</title>
+    <title>CinemaNote</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light  bg-dark">
         <div class="container">
           <a class="navbar-brand p-2 text-white" href="/">LOGO</a>
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-
-</div>
+          </div>
 
  <% if customer_signed_in? %>
   <li>
-    <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
+    <%= link_to about_path, class: 'nav-link text-white' do %>
     <i class="fas fa-users"></i>マイページ
     <% end %>
   </li>
   <li>
-    <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
-    <i class="fas fa-home"></i>商品一覧
+    <%= link_to about_path, class: 'nav-link text-white' do %>
+    <i class="fas fa-home"></i>映画を検索する
     <% end %>
   </li>
   <li>
-    <%= link_to cart_items_path, class: 'nav-link text-white' do %>
-    <i class="fas fa-sign-out-alt"></i>カート
+    <%= link_to about_path, class: 'nav-link text-white' do %>
+    <i class="fas fa-sign-out-alt"></i>観た映画（いいねをした作品一覧）
     <% end %>
   </li>
   <li>
-  <%= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>
-  <i class="fas fa-sign-out-alt"></i>ログアウト
-  <% end %>
+    <%= link_to about_path, class: 'nav-link text-white' do %>
+    <i class="fas fa-sign-out-alt"></i>自分がコメントした作品（レビューした作品一覧）
+    <% end %>
+  </li>
+  <li>
+    <%= link_to about_path, class: 'nav-link text-white' do %>
+    <i class="fas fa-sign-out-alt"></i>お気に入りの映画
+    <% end %>
+  </li>
+  <li>
+<%= button_to 'Exit', destroy_customer_session_path, method: :delete %>
+
+
+  <!--<%#= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>-->
+  <!--<i class="fas fa-sign-out-alt"></i>ログアウト-->
+  <!--<%# end %>-->
   </li>
 
   <% elsif admin_signed_in? %>
   <li>
-  <%= link_to admin_items_path, class: 'nav-link text-white' do %>
-  <i class="fas fa-home"></i>商品一覧
+  <%= link_to about_path, class: 'nav-link text-white' do %>
+  <i class="fas fa-home"></i>会員に向けてのメッセージページ（PICKUPに表示させる）
   <% end %>
   </li>
   <li>
-  <%= link_to admin_customers_path, class: 'nav-link text-white' do %>
+  <%= link_to about_path, class: 'nav-link text-white' do %>
   <i class="fas fa-users"></i>会員一覧
   <% end %>
   </li>
   <li>
-  <%= link_to admin_root_path, class: 'nav-link text-white' do %>
-  <i class="fas fa-sign-out-alt"></i>注文履歴一覧
-  <% end %>
-  </li>
-  <li>
-  <%= link_to admin_genres_path, class: 'nav-link text-white' do %>
-  <i class="fas fa-sign-out-alt"></i>ジャンル一覧
+  <%= link_to about_path, class: 'nav-link text-white' do %>
+  <i class="fas fa-sign-out-alt"></i>コメント一覧
   <% end %>
   </li>
   <li>
   <%= link_to destroy_admin_session_path, class: 'nav-link text-white', method: :delete do %>
-  <i class="fas fa-sign-out-alt"></i>ログアウト
+  <i class="fas fa-sign-out-alt"></i>ログアウトする
   <% end %>
   </li>
 
   <% else %>
   <li>
   <%= link_to about_path, class: 'nav-link text-white' do %>
-  <i class="fas fa-link"></i>About
+  <i class="fas fa-link"></i>アプリ説明/情報(About)
   <% end %>
   </li>
   <li>
   <%= link_to about_path, class: 'nav-link text-white' do %>
-  <i class="fas fa-home"></i>商品一覧
+  <i class="fas fa-home"></i>映画を検索する
   <% end %>
   </li>
   <li>
   <%= link_to new_customer_registration_path, class: 'nav-link text-white' do %>
-  <i class="fas fa-user-plus"></i>新規登録
+  <i class="fas fa-user-plus"></i>新規会員登録する
   <% end %>
   </li>
   <li>
   <%= link_to new_customer_session_path, class: 'nav-link text-white' do %>
-  <i class="fas fa-sign-in-alt"></i>ログイン
+  <i class="fas fa-sign-in-alt"></i>すでに会員の方用（ログイン）
   <% end %>
   </li>
   <% end %>
