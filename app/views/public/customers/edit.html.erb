@@ -1,17 +1,20 @@
 <div class="container">
   <h4 class="row mt-4 bg-light">
-    <%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集
+    <%= @customer.name %>さんの会員情報編集ページ
   </h4>
   <div class="row mt-4">
     <%= form_with model: @customer, url: customer_path(current_customer), method: :patch do |f| %>
       <table class="table table-borderless">
         <tr>
+        <td>プロフィール画像</td>
+        <td><%= f.file_field :profile_image, accept: "image/*" %></td>
+        <tr>
           <td>氏名</td>
-          <td><%= f.text_field :first_name, autocomplete: "first_name" %><%= "  " %><%= f.text_field :last_name, autocomplete: "last_name" %></td>
+          <td><%= f.text_field :name, autocomplete: "name" %></td>
         </tr>
         <tr>
           <td>フリガナ</td>
-          <td><%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %><%= "  " %><%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %></td>
+          <td><%= f.text_field :name_kana, autocomplete: "name_kana" %></td>
         </tr>
         <tr>
           <td>郵便番号</td>
@@ -34,10 +37,26 @@
           <td colspan="1"></td>
         </tr>
       </table>
-      <%= f.submit '編集内容を保存', class: "btn btn-success"%>
+    <div class="row mx-4">
+      <%= f.submit "編集内容を保存", class: "btn btn-success"%>
       <% end %>
-  </div>
+    </div>
   <div class="row">
       <%= link_to '退会する', customers_unsubscribe_path, class: "btn btn-danger mt-2"%>
   </div>
 </div>
+
+
+<%#= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+
+
+
+      <!--<th scope="row">ジャンル</th>-->
+      <!--<td><%#= f.collection_select :genre_id, Genre.all, :id, :name %></td>-->
+
+      <!--<th scope="row"><%#= f.label "販売ステータス" %></th>-->
+      <!--<td>-->
+      <!--<%#= f.radio_button :is_active, true %>-->
+      <!--<%#= f.label :is_active, '販売中' %>-->
+      <!--<%#= f.radio_button :is_active, false %>-->
+      <!--<%#= f.label :is_active, '販売停止中' %>-->

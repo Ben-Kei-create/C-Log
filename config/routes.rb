@@ -31,9 +31,9 @@ scope module: :public do
 # get 'orders/complete' => 'orders#complete'
 # resources :orders, only: [:new, :create, :index, :show]
 # resources :addresses, only: [:new, :index, :show, :create, :update, :destroy, :edit]
-# get 'customers/unsubscribe' => 'customers#unsubscribe'
+ get 'customers/unsubscribe' => 'customers#unsubscribe'
 # get 'customers/information' => 'customers#show'
- resources :customers, only: [:show, ]
+ resources :customers, only: [:show, :edit, :update]
 # get 'orders/confirm' => 'orders#confirm'
 # patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 # post 'orders/confirm' => 'orders#confirm'
