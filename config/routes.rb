@@ -22,8 +22,8 @@ end
 
 scope module: :public do
  root to:"homes#top"
- get 'movies/search'
- get 'movies/show'
+ get 'movies/search' => 'movies#search'
+ resources :movies, only: [:show]
  get'homes/about' => 'homes#about', as: 'about'
 # resources :items, only: [:index, :show]
 # delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'cart_items_destroy_all'
