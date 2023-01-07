@@ -1,47 +1,42 @@
 class Public::CustomersController < ApplicationController
+end
+# # Cinema Logbook
 
-# Cinema Logbook
 
+# #  def new
+# #   @customer = Customer.new
+# #  end
 
-#  def new
-#   @customer = Customer.new
+#  def show
+#    @customer = Customer.find(current_customer)
 #  end
 
- def show
-   @customer = Customer.find(current_customer.id)
- end
+# #  def withdrawal
+# #    @customer = Customer.find(params[:id])
+# #     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+# #    @customer.update(is_deleted: true)
+# #    reset_session
+# #    flash[:notice] = "退会処理を実行いたしました"
+# #    redirect_to root_path
+# #  end
 
-#  def withdrawal
-#    @customer = Customer.find(params[:id])
-#     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-#    @customer.update(is_deleted: true)
-#    reset_session
-#    flash[:notice] = "退会処理を実行いたしました"
-#    redirect_to root_path
+#  def edit
+#   @customer = Customer.find(current_customer.id)
 #  end
 
- def edit
-  @customer = Customer.find(current_customer.id)
- end
-
-  def update
-   current_customer.update(customer_params)
-   redirect_to customer_path(current_customer)
-  end
-
-#   def unsubscribe
+#   def update
+#    current_customer.update(customer_params)
+#    redirect_to customer_path(current_customer)
 #   end
 
- private
-  def customer_params
-    params.require(:customer).permit(:profile_image, :name, :name_kana, :postal_code, :address, :telephone_number, :email, )
-  end
+# #   def unsubscribe
+# #   end
 
- end
-
-
-
-end
+#  private
+#   def customer_params
+#     params.require(:customer).permit(:profile_image, :name, :name_kana, :postal_code, :address, :telephone_number, :email)
+#   end
+# end
 
 
 
