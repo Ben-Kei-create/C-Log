@@ -1,22 +1,26 @@
 <%= flash[:notice] %>
 <div class="container">
+  <div class="row bg-gray">
+    <div class="slider">
+      <%= image_tag 'museum.jpg' %>
+      <%= image_tag 'lady.jpg' %>
+      <%= image_tag 'popcorn.jpg' %>
+      <%= image_tag 'monoqro.jpg' %>
+    </div>
   <div class="row">
     <div class="col">
-      <h1>Homes#top</h1>
-       <%= image_tag 'felix-mooneeram-evlkOfkQ5rE-unsplash.jpg', width: '50%', height: '50%'  %>
-       <br>
-       ようこそ CinemaLogbook へ！
-       ここでは、さまざまな映画に関するあなたの意見、印象を共有、
-       交換することができます
-       start
+       <h4>CINEMA-LOGへようこそ。<br>
+       映画の海へ飛び込もう！このサイトは、電子版の映画ノートとして使えます。<br>
+       自身の映画生活を記録しながら、映画作品を選べる素敵なレビューサイトです。<br>
+       <h4>
     </div>
   </div>
-  <div class="row">
-   IMPRESSION（会員のおすすめ映画、最近見た映画を表示させる）
-  </div>
-  <div class="row">
-   PICK UP NEWS（管理者からのメッセージを表示させる）
-  </div>
+  <h2 class="row">
+   IMPRESSION ~みんなのおすすめ~
+  </h2>
+  <h2 class="row">
+   PICK UP NEWS ~管理者より~
+  </h2>
 </div>
   <p>Find me in app/views/homes/top.html.erb</p>
   <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>

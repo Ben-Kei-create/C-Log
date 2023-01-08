@@ -1,7 +1,41 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Zen+Maru+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 h1 {
   font-family: 'Kosugi Maru', sans-serif;
+}
+
+h2 {
+font-family: 'Fredoka One', cursive;
+}
+
+h3 {
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+h4 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+.p {
+      position: absolute;
+//     font-family: 'Dancing Script', cursive;
+//     font-size: 30px;
+// transform: translate(-50%,-50%);
+// //     top: 50%;
+// //     left: 50%;
+// //     padding: 0;
+// //     margin: 0;
+transform: translate(-50px,-50px);
+}
+.guest {
+  font-family: 'Fredoka One', sans-serif;
+}
+
+.slider {
+margin: 20px 0px 20px 0px;
+height: auto;
+  width: auto;
 }
