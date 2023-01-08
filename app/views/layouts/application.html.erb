@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <!--<head>-->
-  <!--  <title>C-Log</title>-->
-  <!--  <meta name="viewport" content="width=device-width,initial-scale=1">-->
-  <!--  <%#= csrf_meta_tags %>-->
-  <!--  <%#= csp_meta_tag %>-->
-  <!--  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-  <!--  <%#= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-  <!--  <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>-->
-  <!--</head>-->
-  <title>C-Log</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <head>
+    <title>C-Log</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+        <%= csrf_meta_tags %>
+         <%= csp_meta_tag %>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -23,7 +15,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light  bg-dark">
         <div class="container">
-          <a class="navbar-brand p-2 text-white" href="/">LOGO</a>
+          <a class="navbar-brand p-2 text-white" href="/">C-Log</a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +25,6 @@
             <ul class="navbar-nav ml-auto">
           </div>
 
-  <header style="margin: 10px">
     <% if customer_signed_in? %>
       <li>
         <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
@@ -88,7 +79,7 @@
     <% else %>
       <li>
         <%= link_to about_path, class: 'nav-link text-white' do %>
-        <i class="fas fa-link"></i>アプリ説明/情報(About)
+        <i class="fas fa-link"></i>アプリ説明/情報(ReadMe)
         <% end %>
       </li>
       <li>
@@ -117,6 +108,7 @@
 <div class="row">
 <div class="mx-auto">
 CopyRight Infratop.inc
+<img src="app/assets/images/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg">
 </div>
 </div>
 </div>
