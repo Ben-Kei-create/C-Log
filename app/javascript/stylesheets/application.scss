@@ -19,8 +19,11 @@ h3 {
 h4 {
   font-family: 'Zen Maru Gothic', sans-serif;
 }
+
+.slider{
+   position: absolute;
+}
 .p {
-      position: absolute;
 //     font-family: 'Dancing Script', cursive;
 //     font-size: 30px;
 // transform: translate(-50%,-50%);
@@ -28,7 +31,7 @@ h4 {
 // //     left: 50%;
 // //     padding: 0;
 // //     margin: 0;
-transform: translate(-50px,-50px);
+transform: translate(50px,50px);
 }
 .guest {
   font-family: 'Fredoka One', sans-serif;
