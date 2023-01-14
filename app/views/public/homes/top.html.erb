@@ -1,27 +1,87 @@
 <%= flash[:notice] %>
-<div class="container">
-  <div class="row bg-gray">
-    <div class="slider">
-      <%= image_tag 'museum.jpg' %>
-      <%= image_tag 'lady.jpg' %>
-      <%= image_tag 'popcorn.jpg' %>
-      <%= image_tag 'monoqro.jpg' %>
+  <div class="container">
+
+    <div class="row">
+      <div class="slider">
+        <%= image_tag 'museum.jpg'  %>
+        <%= image_tag 'lady.jpg'    %>
+        <%= image_tag 'popcorn.jpg' %>
+        <%= image_tag 'monoqro.jpg' %>
+      </div>
     </div>
-  <div class="row">
-    <div class="col">
-      <p>aiueo</p>
-       <h4>CINEMA-LOGへようこそ。<br>
-       映画の海へ飛び込もう！このサイトは、電子版の映画ノートとして使えます。<br>
-       自身の映画生活を記録しながら、映画作品を選べる素敵なレビューサイトです。<br>
-       <h4>
+
+    <div class="row mt-4 mx-auto">
+      <div class="col">
+        <h2 class="text-center">Thank You!!</h2>
+        <h4 class="text-center">
+        <strong>CINEMA-LOG</strong>へようこそ。<br>
+        このサイトは、電子版の映画記録NOTEです。<br>
+        あなた自身のの映画生活を日々記録しながら、<br>
+        映画作品を選べる素敵なレビューサイトです。<br>
+        一緒に、映画の海へ飛び込みましょう。
+        <h4>
+      </div>
+    </div>
+
+    <div class="row mt-4 mx-5">
+      <div class="col">
+        <h2 class="text-center">IMPRESSION</h2>
+        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+          <div class="card-header">Customer1</div>
+          <div class="card-body">
+            <p class="card-text text-white">Best_Movie</p>
+            <h4 class="card-title bg-secondary">Star Wars</h4>
+            <p class="card-text text-white">Recommend_Movie</p>
+            <h4 class="card-title bg-secondary">Disney ~美女と野獣~</h4>
+          </div>
+        </div>
+        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+          <div class="card-header">Customer2</div>
+          <div class="card-body">
+            <p class="card-text text-white">Best_Movie</p>
+            <h4 class="card-title bg-secondary">Star Wars</h4>
+            <p class="card-text text-white">Recommend_Movie</p>
+            <h4 class="card-title bg-secondary">Disney ~美女と野獣~</h4>
+          </div>
+        </div>
+        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+          <div class="card-header">Customer3</div>
+          <div class="card-body">
+            <p class="card-text text-white">Best_Movie</p>
+            <h4 class="card-title bg-secondary">Star Wars</h4>
+            <p class="card-text text-white">Recommend_Movie</p>
+            <h4 class="card-title bg-secondary">Disney ~美女と野獣~</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+      <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
+
+    <div class="row mt-4 mx-auto">
+      <div class="col">
+     <h2 class="text-center">PICK UP NEWS</h2>
+       <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+          <div class="card-header">投稿日時を表示</div>
+            <div class="card-body">
+              <h4 class="card-title text-dark">管理者からのメッセージなどを表示</h4>
+            </div>
+        </div>
+        <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+          <div class="card-header">投稿日時を表示</div>
+            <div class="card-body">
+              <h4 class="card-title text-dark">管理者からのメッセージなどを表示</h4>
+            </div>
+        </div>
+        <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+          <div class="card-header">投稿日時を表示</div>
+            <div class="card-body">
+              <h4 class="card-title text-dark">管理者からのメッセージなどを表示</h4>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
     </div>
   </div>
-  <h2 class="row">
-   IMPRESSION ~みんなのおすすめ~
-  </h2>
-  <h2 class="row">
-   PICK UP NEWS ~管理者より~
-  </h2>
-</div>
-  <p>Find me in app/views/homes/top.html.erb</p>
+
   <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
