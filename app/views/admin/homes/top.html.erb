@@ -26,9 +26,9 @@
            <% @messages.each do |me| %>
             <tbody>
               <tr>
-                <td><%= link_to me.created_at, admin_item_path(me) %></td>
-                <td><%= me.name %></td>
-                <td><%= t.price %></td>
+                <td><%= link_to me.created_at, admin_item_path(me.id) %></td>
+                <td><%= me.title %></td>
+                <td><%= me.information %></td>
               <tr>
             </tbody>
             <% end %>
