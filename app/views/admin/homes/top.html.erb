@@ -1,1 +1,29 @@
-"Admin#top"
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <h2 class="pagetitle">Message List</h2>
+<%= flash[:notice] %>
+</nav>
+
+    <div class="row mt-4 text-right">
+      <div class="col-md-10">
+        <%= link_to new_admin_message_path, class: 'nav-link' do %>
+          <h4><i class="fas fa-pen-square"></i>会員へ連絡する</h4>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-2"></div>
+        <div class="col">
+          <table class="table table-bordered text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th style="width: 15%">追加日時</th>
+                <th style="width: 15%">タイトル</th>
+                <th style="width: 70%">内容</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      <div class="col-2"></div>
+    </div>

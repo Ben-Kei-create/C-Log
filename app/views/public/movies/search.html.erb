@@ -1,20 +1,26 @@
-<h1>映画検索</h1>
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <h2 class="pagetitle">Search</h2>
+</nav>
+    <div class="row mt-5 justify-content-md-center">
+      <% if customer_signed_in? %>
+        <div class="search_form">
+          <%= form_with url: search_path, local: true, method: :get do |f| %>
+            <%= f.text_field :word %>
+            <%= f.select :range, options_for_select([['User'], ['Book']]) %>
+            <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+            <%= f.submit "検索", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
-<% if customer_signed_in? %>
-  <div class="search_form">
-    <%= form_with url: search_path, local: true, method: :get do |f| %>
-      <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([['User'], ['Book']]) %>
-      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
+    <div class="row mt-5 justify-content-md-center">
+      <div>
+        <%= form_tag(root_path, method: :get) do %>
+        <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' %>
+        <%= submit_tag '映画を検索する' %>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-
-<div>
-  <%= form_tag(root_path, method: :get) do %>
-    <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' %>
-    <%= submit_tag '映画を検索する' %>
-  <% end %>
-</div>
