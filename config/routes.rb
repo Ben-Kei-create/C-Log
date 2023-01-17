@@ -33,7 +33,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
   root to: "homes#top"
-  resources :messages, only: [:new, :create, :show]
+  resources :messages, only: [:new, :create, :show, :edit]
 # # resources :customers, only: [:index, :show, :edit, :update]
 # # resources :genres, only: [:index, :create, :edit, :update]
 # # patch 'order_details/:id' => 'order_details#update'

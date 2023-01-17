@@ -1,0 +1,52 @@
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <h2 class="pagetitle">Message edit</h2>
+<%= flash[:notice] %>
+</nav>
+
+
+<!--<div class="container">-->
+<!--<h4 class="row mt-4 bg-light">-->
+<!--<strong>商品編集</strong></h4>-->
+<!--<%#= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>-->
+<!--<table class="table table-borderless">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th><label for="inputImage" class="col-form-label mt-4">商品画像</label></th>-->
+<!--      <th><%#= f.file_field :profile_image, accept: "image/*" %></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--    <tr>-->
+<!--      <th scope="row">商品名</th>-->
+<!--      <td><%#= f.text_field :name %></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th scope="row">商品説明</th>-->
+<!--      <td><%#= f.text_area :introduction %></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th scope="row">ジャンル</th>-->
+<!--      <td><%#= f.collection_select :genre_id, Genre.all, :id, :name %></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th scope="row">税抜価格</th>-->
+<!--      <td><%#= f.text_field :price %>円</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th scope="row"><%#= f.label "販売ステータス" %></th>-->
+<!--      <td>-->
+<!--      <%#= f.radio_button :is_active, true %>-->
+<!--      <%#= f.label :is_active, '販売中' %>-->
+<!--      <%#= f.radio_button :is_active, false %>-->
+<!--      <%#= f.label :is_active, '販売停止中' %>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+<!--    <div class="row mx-4">-->
+<!--    <%#= f.submit '変更を保存', class: "btn btn-success" %>-->
+<!--    <%# end %>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->

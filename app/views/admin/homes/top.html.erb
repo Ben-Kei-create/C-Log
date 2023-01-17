@@ -18,15 +18,16 @@
           <table class="table table-bordered text-center">
             <thead class="thead-dark">
               <tr>
-                <th style="width: 15%">追加日時</th>
-                <th style="width: 15%">タイトル</th>
-                <th style="width: 70%">内容</th>
+                <th style="width: 15%"><h4>追加日時</h4></th>
+                <th style="width: 15%"><h4>タイトル</h4></th>
+                <th style="width: 60%"><h4>内容</h4></th>
+                <th style="width: 10%"><h4>削除</h4></th>
               </tr>
             </thead>
            <% @messages.each do |me| %>
             <tbody>
               <tr>
-                <td><%= link_to me.created_at, admin_item_path(me.id) %></td>
+                <td><%= link_to me.created_at, admin_message_path(me.id) %></td>
                 <td><%= me.title %></td>
                 <td><%= me.information %></td>
               <tr>

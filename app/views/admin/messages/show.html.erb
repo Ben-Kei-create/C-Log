@@ -1,48 +1,36 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle">Message show</h2>
+    <h2 class="pagetitle"><i class="fas fa-pen-square"></i>Message show</h2>
 <%= flash[:notice] %>
 </nav>
+    <div class="row mt-5">
+        <div class="col-3"></div>
+          <div class="col-3">
+            <h4>投稿日：<%= @message.created_at %></h4><br>
+            <h4>題名：<%= @message.title %></h4><br>
+            <h4>本文：<%= @message.information %><br>
+          </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-3"></div>
+        <div class="col-3">
+        <h4>
+        <%= link_to "◀︎一覧へ戻る", admin_root_path, class: "btn badge-light btn-md" %>
+        <%= link_to "編集する", edit_admin_message_path(@message.id), class: "btn badge-light btn-md" %>
+        <%= link_to "続けて投稿する▶︎",new_admin_message_path, class: "btn badge-light btn-md" %>
+        </h4>
+        </div>
+    </div>
 
-<!--<div class="row mt-4">-->
-<!--<div class="col-lg-6">-->
-<!--<%#= image_tag @item.get_profile_image(100,100), width: '80%', height: '80%' %>-->
-<!--</div>-->
 
-<!--<div class="col-lg-6">-->
 
-<!--<table class="table table-borderless">-->
-<!--    <tr>-->
-<!--      <th scope="col">商品名</th>-->
-<!--      <th scope="col"><%#= @item.name %></th>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="col">商品説明</th>-->
-<!--      <th scope="col"><%#= @item.introduction %></th>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="col">ジャンル</th>-->
-<!--      <th scope="col"><%#= @item.genre.name %></th>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="col">税込価格(税抜価格)</th>-->
-<!--      <th scope="col"><%#= @item.price %></th>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="col">販売ステータス</th>-->
-<!--      <th scope="col">-->
-<!--      <%# if @item.is_active == false %>-->
-<!--      <p class="text-secondary"><strong>販売停止中</strong></p>-->
-<!--      <%# else %>-->
-<!--      <p class="text-success"><strong>販売中</strong></p>-->
-<!--      <%# end %>-->
-<!--      </th>-->
-<!--    </tr>-->
-<!--</table>-->
-
-<!--<div class="row mt-4">-->
-<!--<%#= form_with model: @item, method: :edit do |t| %>-->
-<!--<td><%#= link_to "編集する", edit_admin_item_path, class: "btn btn-success" %></td><p>-->
-<!--<%# end %>-->
-<!--</div>-->
-<!--</div>-->
+    <!--<div class="dropdown">-->
+    <!--            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+    <!--            Dropdown-->
+    <!--            </button>-->
+    <!--            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+    <!--              <a class="dropdown-item" href="/admin/messages/:id/edit"></a>-->
+    <!--              <a class="dropdown-item" href="/admin/messages/new">新規投稿へ</a>-->
+    <!--              <a class="dropdown-item" href="/admin">投稿一覧へ</a>-->
+    <!--            </div>-->
+    <!--          </div>-->
