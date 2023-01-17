@@ -14,7 +14,7 @@
 
     <div class="row mt-4">
       <div class="col-2"></div>
-        <div class="col">
+        <div class="col-8">
           <table class="table table-bordered text-center">
             <thead class="thead-dark">
               <tr>
@@ -23,7 +23,17 @@
                 <th style="width: 70%">内容</th>
               </tr>
             </thead>
+           <% @messages.each do |me| %>
+            <tbody>
+              <tr>
+                <td><%= link_to me.created_at, admin_item_path(me) %></td>
+                <td><%= me.name %></td>
+                <td><%= t.price %></td>
+              <tr>
+            </tbody>
+            <% end %>
           </table>
         </div>
       <div class="col-2"></div>
     </div>
+
