@@ -10,8 +10,6 @@ class Admin::MessagesController < ApplicationController
    redirect_to '/admin'
   end
 
-
-
 private
   def message_params
     params.require(:message).permit(:title, :information)
