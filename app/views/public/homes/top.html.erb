@@ -24,7 +24,7 @@
     </div>
 
     <div class="row mt-4 justify-content-md-center">
-      <h2 class="text-center">IMPRESSION</h2>
+      <h2 class="text-center">IMPRESSION~会員時のみ閲覧可能~</h2><span><%= link_to "過去のIMPRESSION▶︎▶︎", messages_path, class: "btn badge-dark btn-md" %>
     </div>
 
     <div class="row mt-4 justify-content-md-center">
@@ -60,16 +60,16 @@
 
 
     <div class="row mt-4 justify-content-md-center">
-      <h2 class="text-center">PICK UP NEWS</h2><span><%= link_to "過去の投稿＞＞", messages_path, class: "btn badge-light btn-md" %>
+      <h2 class="text-center">PICK UP NEWS</h2><span><%= link_to "過去のPICK UP NEWS▶︎▶︎", messages_path, class: "btn badge-light btn-md" %>
     </div>
     <div class="row mt-4 justify-content-md-center">
         <% @messages.each do |me| %>
           <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
             <div class="card-header">投稿日：<%= me.created_at %></div>
               <div class="card-body">
-                <h4 class="card-title text-dark">タイトル<br><%= strip_tags(me.title).truncate(20) %></h4>
-                  <p class="card-text">本文<br><%= strip_tags(me.information).truncate(20) %></p>
-                  <%= link_to "詳しくみる＞", message_path(me), class: "btn badge-light btn-md" %>
+                <h4 class="card-title text-dark">タイトル</h4><%= strip_tags(me.title).truncate(20) %><p>
+                  <h4 class="card-text">本文</h4><%= strip_tags(me.information).truncate(20) %><p>
+                  <%= link_to "詳しくみる▶︎", message_path(me), class: "btn badge-light btn-md" %>
               </div>
           </div>
         <% end %>

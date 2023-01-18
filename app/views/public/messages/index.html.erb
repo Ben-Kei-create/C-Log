@@ -17,7 +17,7 @@
            <% @messages.each do |me| %>
             <tbody>
               <tr>
-                <td><%= link_to me.created_at, admin_message_path(me.id) %></td>
+                <td><%= link_to me.created_at, message_path(me) %></td>
                 <td><%= me.title %></td>
                 <td><%= me.information %></td>
               <tr>
@@ -27,4 +27,4 @@
         </div>
       <div class="col-2"></div>
     </div>
-    
+
