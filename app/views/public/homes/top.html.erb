@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="row mt-4 mx-auto">
+    <div class="row mt-5 mx-auto">
       <div class="col">
         <h2 class="text-center">Thank You!!</h2>
         <h4 class="text-center">
@@ -23,9 +23,11 @@
       </div>
     </div>
 
-    <div class="row mt-4 mx-5">
-      <div class="col">
-        <h2 class="text-center">IMPRESSION</h2>
+    <div class="row mt-4 justify-content-md-center">
+      <h2 class="text-center">IMPRESSION</h2>
+    </div>
+
+    <div class="row mt-4 justify-content-md-center">
         <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
           <div class="card-header">Customer1</div>
           <div class="card-body">
@@ -54,25 +56,30 @@
           </div>
         </div>
       </div>
-    </div>
       <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
 
 
     <div class="row mt-4 justify-content-md-center">
-      <h2 class="text-center">PICK UP NEWS</h2>
+      <h2 class="text-center">PICK UP NEWS</h2><span><%= link_to "過去の投稿＞＞", messages_path, class: "btn badge-light btn-md" %>
     </div>
     <div class="row mt-4 justify-content-md-center">
         <% @messages.each do |me| %>
           <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-            <div class="card-header"><%= me.created_at %></div>
+            <div class="card-header">投稿日：<%= me.created_at %></div>
               <div class="card-body">
-                <h4 class="card-title text-dark"><%= strip_tags(me.title).truncate(10) %></h4>
-                  <p class="card-text"><%= strip_tags(me.information).truncate(10) %></p>
+                <h4 class="card-title text-dark">タイトル<br><%= strip_tags(me.title).truncate(20) %></h4>
+                  <p class="card-text">本文<br><%= strip_tags(me.information).truncate(20) %></p>
+                  <%= link_to "詳しくみる＞", message_path(me), class: "btn badge-light btn-md" %>
               </div>
           </div>
         <% end %>
     </div>
+
+    <div class="mx-5">
+
     </div>
+
+  </div>
 
   <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
 
@@ -94,7 +101,5 @@
 <!--  </div>-->
 <!--  </div>-->
 
-<!--<div class="mx-5">-->
-<!--<%#= link_to "全ての商品をみる＞", items_path %>-->
-<!--</div>-->
+
 <!--</div>-->

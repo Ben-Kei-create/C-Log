@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 scope module: :public do
 #  resources :customers, only: [:show, :edit, :update]
 root to: "homes#top"
+  resources :messages, only: [:show, :index]
   get'homes/about' => 'homes#about', as: 'about'
   get 'movies/search' => 'movies#search'
   resources :movies, only: [:show]
