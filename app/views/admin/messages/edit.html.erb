@@ -1,52 +1,49 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle">Message edit</h2>
+    <h2 class="pagetitle"><i class="fas fa-pen"></i>Message edit</h2>
 <%= flash[:notice] %>
 </nav>
 
+    <div class="row mt-5 justify-content-md-center">
+      <div class="col-1"></div>
+      <div class="col-3">
+      <%= link_to "◀︎一覧へ戻る", admin_root_path, class: "btn badge-light btn-md" %>
+      </div>
+      <div class="col-4"></div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-3"></div>
+      <div class="col-4">
+        <%= form_with model: @message, url: admin_message_path(@message.id), method: :patch do |f| %>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th><h4>投稿日時</h4></th>
+              <th><h4><%= @message.created_at %></h4></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><h4>タイトル</h4></th>
+              <td><h4><%= f.text_field :title, size: "40x20"  %></h4></td>
+            </tr>
+            <tr>
+              <th><h4>本文</h4></th>
+              <td><h4><%= f.text_area :information, size: "40x20"  %></h4></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-5">
+      </div>
+    </div>
 
-<!--<div class="container">-->
-<!--<h4 class="row mt-4 bg-light">-->
-<!--<strong>商品編集</strong></h4>-->
-<!--<%#= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>-->
-<!--<table class="table table-borderless">-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th><label for="inputImage" class="col-form-label mt-4">商品画像</label></th>-->
-<!--      <th><%#= f.file_field :profile_image, accept: "image/*" %></th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--    <tr>-->
-<!--      <th scope="row">商品名</th>-->
-<!--      <td><%#= f.text_field :name %></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="row">商品説明</th>-->
-<!--      <td><%#= f.text_area :introduction %></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="row">ジャンル</th>-->
-<!--      <td><%#= f.collection_select :genre_id, Genre.all, :id, :name %></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="row">税抜価格</th>-->
-<!--      <td><%#= f.text_field :price %>円</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="row"><%#= f.label "販売ステータス" %></th>-->
-<!--      <td>-->
-<!--      <%#= f.radio_button :is_active, true %>-->
-<!--      <%#= f.label :is_active, '販売中' %>-->
-<!--      <%#= f.radio_button :is_active, false %>-->
-<!--      <%#= f.label :is_active, '販売停止中' %>-->
-<!--      </td>-->
-<!--    </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
-<!--    <div class="row mx-4">-->
-<!--    <%#= f.submit '変更を保存', class: "btn btn-success" %>-->
-<!--    <%# end %>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</div>-->
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+      <%= f.submit '変更を保存', class: "btn btn-success btn-md" %>
+      <% end %>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>

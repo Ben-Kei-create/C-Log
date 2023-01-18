@@ -1,13 +1,13 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle">Message List</h2>
+    <h2 class="pagetitle"><i class="fas fa-rss"></i>Message List</h2>
 <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
       <div class="col-md-10">
         <%= link_to new_admin_message_path, class: 'nav-link' do %>
-          <h4><i class="fas fa-pen-square"></i>会員へ連絡する</h4>
+          <h4><i class="fas fa-pen-square"></i>新規投稿する</h4>
         <% end %>
       </div>
     </div>
@@ -20,8 +20,7 @@
               <tr>
                 <th style="width: 15%"><h4>追加日時</h4></th>
                 <th style="width: 15%"><h4>タイトル</h4></th>
-                <th style="width: 60%"><h4>内容</h4></th>
-                <th style="width: 10%"><h4>削除</h4></th>
+                <th style="width: 70%"><h4>内容</h4></th>
               </tr>
             </thead>
            <% @messages.each do |me| %>
