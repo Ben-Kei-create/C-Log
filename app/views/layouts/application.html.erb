@@ -38,35 +38,37 @@
 
 　　　　　　　<!--会員ページ-->
               <% if customer_signed_in? %>
+              <div class="cusotmer">
                 <li>
-                  <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
-                  <i class="fas fa-users"></i>Mypage ~マイページ~
+                  <%= link_to customer_session_path(current_customer), class: 'nav-link text-white' do %>
+                  <i class="fas fa-users"></i><%= "  " %><span>M</span>ypage ~マイページ~
                   <% end %>
                 </li>
                 <li>
                   <%= link_to movies_search_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-home"></i>Search ~検索~
+                  <i class="fas fa-home"></i><%= "  " %><span>S</span>earch ~検索~
                   <% end %>
                 </li>
                 <li>
                   <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-sign-out-alt"></i>LOG ~鑑賞した映画~
+                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>OG ~鑑賞した映画~
                   <% end %>
                 </li>
                 <li>
                   <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-sign-out-alt"></i>Comment ~感想コメント~
+                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>C</span>omment ~感想コメント~
                   <% end %>
                 </li>
                 <li>
                   <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-sign-out-alt"></i>favorite ~お気に入り~
+                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>f</span>avorite ~お気に入り~
                   <% end %>
                 <li>
                   <%= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i>LogOut ~ログアウト~
-                  <% end %>
+                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogOut ~ログアウト~
                 </li>
+              <% end %>
+              </div>
 
 　　　　　　　<!--管理者ページ-->
               <% elsif admin_signed_in? %>

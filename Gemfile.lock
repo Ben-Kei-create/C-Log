@@ -312,7 +312,7 @@ DEPENDENCIES
   faker
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
-  kaminari (~> 0.17.0)
+  kaminari
   listen (~> 3.3)
   net-smtp
   pg

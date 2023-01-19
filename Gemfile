@@ -54,7 +54,6 @@ end
 
 gem 'bootstrap4-kaminari-views'
 gem 'devise'
-gem 'kaminari', '~> 0.17.0'
 
 group :development do
   gem 'rubocop', require: false
@@ -69,3 +68,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'net-smtp'
 gem 'themoviedb-api', '~> 1.3'
 gem 'ransack'
+
+gem 'kaminari'
