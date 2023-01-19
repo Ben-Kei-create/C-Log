@@ -1,5 +1,4 @@
 class Public::CustomersController < ApplicationController
-end
 # # Cinema Logbook
 
 
@@ -7,9 +6,10 @@ end
 # #   @customer = Customer.new
 # #  end
 
-#  def show
-#    @customer = Customer.find(current_customer)
-#  end
+ def show
+   @customer = Customer.find(current_customer.id)
+   @profile_image = @customer.profile_image
+ end
 
 # #  def withdrawal
 # #    @customer = Customer.find(params[:id])
@@ -20,9 +20,16 @@ end
 # #    redirect_to root_path
 # #  end
 
-#  def edit
-#   @customer = Customer.find(current_customer.id)
+ def edit
+  @customer = Customer.find(current_customer.id)
+ end
+end
+#   private
+#   def customer_params
+#     params.require(:customer).permit(:name, :name_kana, :postal_code, :address, :telephone_number, :profile_image)
+#   end
 #  end
+
 
 #   def update
 #    current_customer.update(customer_params)

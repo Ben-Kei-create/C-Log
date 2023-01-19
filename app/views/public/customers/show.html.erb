@@ -1,44 +1,113 @@
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <h2 class="pagetitle"><i class="fas fa-user"></i>My Page</h2>
 <%= flash[:notice] %>
-<div class="container">
-  <%= image_tag 'felix-mooneeram-evlkOfkQ5rE-unsplash.jpg', width: '50%', height: '50%'  %>
-  <h4 class="row mt-4 bg-light">マイページ(ログイン後⇨会員トップ画面)</h4>
-  <div class="row">
-    <table width="250" height="75">
-      <tr>
-        <td><h4><strong>登録情報</strong></h4></td>
-        <th>
-        <%= link_to "編集するボタン", edit_customer_path(current_customer), class: 'btn btn-success nav-link' %>
-        </th>
-      </tr>
-    </table>
-  </div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>氏名</th>
-          <th><%= @customer.name %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>フリガナ</th>
-          <td><%= @customer.name_kana %></td>
-        </tr>
+</nav>
+
+<div class="row">
+
+
+<div>
+  <h4><%= image_tag @customer.get_profile_image(100,100) %><%= ' ' %>登録名：<%= @customer.name %></h4>
+</div>
+  <table>
+    <tr>
+      <th><%= link_to "編集する", edit_customer_path(current_customer), class: 'btn btn-success nav-link' %></th>
+    </tr>
+  </table>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>氏名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>カナ</th>
+      <td><%= @customer.name_kana %></td>
+    </tr>
+    <tr>
+      <th>郵便番号（ハイフンなし）</th>
+      <td><%= @customer.postal_code %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @customer.address %></td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td><%= @customer.telephone_number %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @customer.email %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="row">
+  <table width="250" height="75">
+    <tr>
+      <td><h4><strong>配送先</strong></h4></td>
+      <th><%#= link_to "一覧を見る", addresses_path, class: 'btn btn-primary nav-link' %></th>
+    </tr>
+  </table>
+</div>
+
+<div class="row">
+  <table width="300" height="75">
+    <tr>
+      <td><h4><strong>注文履歴</strong></h4></td>
+      <th><%#= link_to "一覧を見る", orders_path, class: 'btn btn-primary nav-link' %></th>
+    </tr>
+  </table>
+</div>
+
+<!--<%#= flash[:notice] %>-->
+<!--<div class="container">-->
+<!--  <%#= image_tag 'felix-mooneeram-evlkOfkQ5rE-unsplash.jpg', width: '50%', height: '50%'  %>-->
+<!--  <h4 class="row mt-4 bg-light">マイページ(ログイン後⇨会員トップ画面)</h4>-->
+<!--  <div class="row">-->
+<!--    <table width="250" height="75">-->
+<!--      <tr>-->
+<!--        <td><h4><strong>登録情報</strong></h4></td>-->
+<!--        <th>-->
+<!--        <%#= link_to "編集するボタン", edit_customer_path(current_customer), class: 'btn btn-success nav-link' %>-->
+<!--        </th>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--    <table class="table table-bordered">-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--          <th>氏名</th>-->
+<!--          <th><%#= @customer.name %></th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--        <tr>-->
+<!--          <th>フリガナ</th>-->
+<!--          <td><%#= @customer.name_kana %></td>-->
+<!--        </tr>-->
 <!--        <tr>-->
 <!--          <th>郵便番号（ハイフンなし）</th>-->
-<!--          <td><%= @customer.postal_code %></td>-->
+<!--          <td><%#= @customer.postal_code %></td>-->
 <!--        </tr>-->
 <!--        <tr>-->
 <!--          <th>住所</th>-->
-<!--          <td><%= @customer.address %></td>-->
+<!--          <td><%#= @customer.address %></td>-->
 <!--        </tr>-->
 <!--        <tr>-->
 <!--          <th>電話番号</th>-->
-<!--          <td><%= @customer.telephone_number %></td>-->
+<!--          <td><#%= @customer.telephone_number %></td>-->
 <!--        </tr>-->
 <!--        <tr>-->
 <!--          <th>メールアドレス</th>-->
-<!--          <td><%= @customer.email %></td>-->
+<!--          <td><%#= @customer.email %></td>-->
 <!--        </tr>-->
 <!--      </tbody>-->
 <!--    </table>-->
@@ -50,7 +119,7 @@
 <!--    <table width="250" height="75">-->
 <!--      <tr>-->
 <!--        <td><h4><strong>あなたの観た映画</strong></h4></td>-->
-<!--        <th><%= link_to "一覧を見る", customer_path, class: 'btn btn-primary nav-link' %></th>-->
+<!--        <th><%#= link_to "一覧を見る", customer_path, class: 'btn btn-primary nav-link' %></th>-->
 <!--      </tr>-->
 <!--    </table>-->
 <!--  </div>-->
@@ -59,7 +128,8 @@
 <!--    <table width="300" height="75">-->
 <!--      <tr>-->
 <!--        <td><h4><strong>あなたがお気に入りした映画</strong></h4></td>-->
-<!--        <th><%= link_to "一覧を見る", customer_path, class: 'btn btn-primary nav-link' %></th>-->
+<!--        <th><%#= link_to "一覧を見る", customer_path, class: 'btn btn-primary nav-link' %></th>-->
 <!--      </tr>-->
 <!--    </table>-->
 <!--</div>-->
+<!-- ユーザーの投稿一覧 -->

@@ -40,13 +40,18 @@
               <% if customer_signed_in? %>
               <div class="cusotmer">
                 <li>
-                  <%= link_to customer_session_path(current_customer), class: 'nav-link text-white' do %>
-                  <i class="fas fa-users"></i><%= "  " %><span>M</span>ypage ~マイページ~
+                  <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
+                  <i class="fas fa-user"></i><%= "  " %><span>M</span>ypage
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
+                  <i class="fas fa-users"></i><%= "  " %><span>A</span>bout
                   <% end %>
                 </li>
                 <li>
                   <%= link_to movies_search_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-home"></i><%= "  " %><span>S</span>earch ~検索~
+                  <i class="fas fa-eye"></i><%= "  " %><span>S</span>earch ~検索~
                   <% end %>
                 </li>
                 <li>
@@ -61,11 +66,11 @@
                 </li>
                 <li>
                   <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>f</span>avorite ~お気に入り~
+                  <i class="fas fa-star"></i><%= "  " %><span>f</span>avorite
                   <% end %>
                 <li>
                   <%= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogOut ~ログアウト~
+                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogout
                 </li>
               <% end %>
               </div>

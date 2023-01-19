@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 scope module: :public do
-#  resources :customers, only: [:show, :edit, :update]
-root to: "homes#top"
+  root to: "homes#top"
+  resources :customers, only: [:show, :edit]
   resources :messages, only: [:show, :index]
   get'homes/about' => 'homes#about', as: 'about'
   get 'movies/search' => 'movies#search'
@@ -13,7 +13,7 @@ root to: "homes#top"
 # # # get 'orders/complete' => 'orders#complete'
 # # # resources :orders, only: [:new, :create, :index, :show]
 # # # resources :addresses, only: [:new, :index, :show, :create, :update, :destroy, :edit]
-# #  get 'customers/unsubscribe' => 'customers#unsubscribe'
+  get 'customers/unsubscribe' => 'customers#unsubscribe'
 # # # get 'customers/information' => 'customers#show'
 # # # get 'orders/confirm' => 'orders#confirm'
 # # # patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
