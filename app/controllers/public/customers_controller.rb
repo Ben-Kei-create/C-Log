@@ -1,7 +1,5 @@
 class Public::CustomersController < ApplicationController
 # # Cinema Logbook
-
-
 # #  def new
 # #   @customer = Customer.new
 # #  end
