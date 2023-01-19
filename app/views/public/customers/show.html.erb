@@ -7,15 +7,16 @@
     <div class="row justify-content-md-center mt-4">
       <h4><%= image_tag @customer.get_profile_image(100,100) %></h4>
     </div>
+
     <div class="row mt-5">
-      <div class="col-2"></div>
-      <div class="col-4">
-      PROFILE
-        <table class="table table-border text-center">
+      <div class="col-1"></div>
+      <div class="col-5">
+      <h2>Profile<%= ' ' %><%= link_to "Profileを変更", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %></h2>
+        <table class="table table-bordered text-center">
           <thead>
             <tr>
-              <th><h4>氏名</h4></th>
-              <th><h4><%= @customer.name %></h4></th>
+              <th style="width: 40%"><h4>氏名</h4></th>
+              <th style="width: 60%"><h4><%= @customer.name %></h4></th>
             </tr>
           </thead>
           <tbody>
@@ -39,73 +40,44 @@
               <th><h4>メールアドレス</h4></th>
               <th><h4><%= @customer.email %></h4></th>
             </tr>
-            <tr>
-              <th></th>
-              <th><h4><%= link_to "編集する", edit_customer_path(current_customer), class: 'btn btn-light nav-link' %></th>
-            </tr>
           </tbody>
         </table>
+
       </div>
 
-      <div class="col-4">
-        IMPRESSION
-        <table class="table text-center">
+      <div class="col-5">
+      <h2>Impression<%= ' ' %><%= link_to "Impressionを編集", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %></h2>
+        <table class="table table-bordered text-center">
           <thead>
             <tr>
-              <th><h4>Best Movie</h4></th>
-              <th><h4><%= @customer.email %></h4></th>
+              <th style="width: 40%"><h4>一番好きな映画</h4></th>
+              <th style="width: 60%"><h4><%= @customer.email %></h4></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th><h4>Recommend Movie<h4></th>
+              <th><h4>今オススメする映画<h4></th>
               <th><h4><%= @customer.email %><h4></th>
-            </tr>
-            <tr>
-              <th></th>
-              <th><h4><%= link_to "編集する", edit_customer_path(current_customer), class: 'btn btn-dark nav-link' %></h4></th>
             </tr>
           </tbody>
         </table>
 
-        IMPRESSION
-        <table class="table text-center">
+        <h2>Favorite<%= ' ' %><%= link_to "Favoriteを編集", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %></h2>
+        <table class="table table-bordered text-center">
           <thead>
             <tr>
-              <th><h4>Best Movie</h4></th>
-              <th><h4><%= @customer.email %></h4></th>
+              <th style="width: 40%"><h4>鑑賞した作品数</h4></th>
+              <th style="width: 60%"><h4><%= @customer.email %>回</h4></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th><h4>Recommend Movie<h4></th>
-              <th><h4><%= @customer.email %><h4></th>
-            </tr>
-            <tr>
-              <th></th>
-              <th><h4><%= link_to "編集する", edit_customer_path(current_customer), class: 'btn btn-dark nav-link' %></h4></th>
+              <th><h4>いいねした作品数<h4></th>
+              <th><h4><%= @customer.email %>回<h4></th>
             </tr>
           </tbody>
         </table>
 
-        IMPRESSION
-        <table class="table text-center">
-          <thead>
-            <tr>
-              <th><h4>Best Movie</h4></th>
-              <th><h4><%= @customer.email %></h4></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th><h4>Recommend Movie<h4></th>
-              <th><h4><%= @customer.email %><h4></th>
-            </tr>
-            <tr>
-              <th></th>
-              <th><h4><%= link_to "編集する", edit_customer_path(current_customer), class: 'btn btn-dark nav-link' %></h4></th>
-            </tr>
-          </tbody>
-        </table>
+        <h2>Review<%= ' ' %><%= link_to "自分のReviewをみる", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %></h2>
       </div>
     </div>
