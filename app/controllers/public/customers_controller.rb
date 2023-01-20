@@ -19,14 +19,22 @@ class Public::CustomersController < ApplicationController
 # #  end
 
  def edit
-  @customer = Customer.find(current_customer.id)
+   @customer = Customer.find(current_customer.id)
  end
+
+  def update
+   current_customer.update(customer_params)
+   redirect_to customer_path(current_customer)
+  end
+
+private
+
+ def customer_params
+    params.require(:customer).permit(:profile_image, :name, :name_kana, :postal_code, :address, :telephone_number, :email)
+ end
+
 end
-#   private
-#   def customer_params
-#     params.require(:customer).permit(:name, :name_kana, :postal_code, :address, :telephone_number, :profile_image)
-#   end
-#  end
+
 
 
 #   def update

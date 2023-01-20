@@ -1,47 +1,59 @@
-<div class="container">
-  <h4 class="row mt-4 bg-light">
-    <%= @customer.name %>さんの会員情報編集ページ
-  </h4>
-  <div class="row mt-4">
-    <%= form_with model: @customer, url: customer_path(current_customer), method: :patch do |f| %>
-      <table class="table table-borderless">
-        <tr>
-        <td>プロフィール画像</td>
-        <td><%= f.file_field :profile_image, accept: "image/*" %></td>
-        <tr>
-          <td>氏名</td>
-          <td><%= f.text_field :name, autocomplete: "name" %></td>
-        </tr>
-        <tr>
-          <td>フリガナ</td>
-          <td><%= f.text_field :name_kana, autocomplete: "name_kana" %></td>
-        </tr>
-        <tr>
-          <td>郵便番号</td>
-          <td><%= f.text_field :postal_code, size: "30*30", autocomplete: "postal_code" %></td>
-          <td colspan="1"></td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td><%= f.text_field :address, size: "30*30", autocomplete: "address" %></td>
-          <td colspan="1"></td>
-        </tr>
-        <tr>
-          <td>電話番号</td>
-          <td><%= f.telephone_field :telephone_number, size: "30*30", autocomplete: "telephone_number" %></td>
-          <td colspan="1"></td>
-        </tr>
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= f.text_field :email, size: "30*30", placeholder: "0000000", autocomplete: "email" %></td>
-          <td colspan="1"></td>
-        </tr>
-      </table>
-    <div class="row mx-4">
-      <%= f.submit "編集内容を保存", class: "btn btn-success"%>
-      <% end %>
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <h2 class="pagetitle"><i class="fas fa-pen"></i>Customer edit</h2>
+<%= flash[:notice] %>
+</nav>
+
+    <div class="row mt-5">
+      <div class="col-3"></div>
+      <div class="col-5">
+        <%= form_with model: @customer, url: customer_path(current_customer), method: :patch do |f| %>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th class="text-center" style="width: 40%"><h4>プロフィール画像</h4></th>
+              <th style="width: 60%"><h4><%= f.file_field :profile_image, accept: "image/*" %></h4></th>
+            <tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center" style="width: 40%"><h4>氏名</td>
+              <td style="width: 60%"><h4><%= f.text_field :name, autocomplete: "name" %></h4></td>
+            </tr>
+            <tr>
+              <td class="text-center" style="width: 40%"><h4>フリガナ</td>
+              <td style="width: 60%"><h4><%= f.text_field :name_kana, autocomplete: "name_kana" %></h4></td>
+            </tr>
+            <tr>
+              <td class="text-center" style="width: 40%"><h4>郵便番号</td>
+              <td style="width: 60%"><h4><%= f.text_field :postal_code, size: "30*30", autocomplete: "postal_code" %></h4></td>
+            </tr>
+            <tr>
+              <td class="text-center" style="width: 40%"><h4>住所</td>
+              <td style="width: 60%"><h4><%= f.text_field :address, size: "30*30", autocomplete: "address" %></h4></td>
+            </tr>
+            <tr>
+              <td class="text-center" style="width: 40%"><h4>電話番号</td>
+              <td style="width: 60%"><h4><%= f.telephone_field :telephone_number, size: "30*30", autocomplete: "telephone_number" %></h4></td>
+            </tr>
+            <tr>
+              <td class="text-center" style="width: 40%"><h4>メールアドレス</td>
+              <td style="width: 60%"><h4><%= f.text_field :email, size: "30*30", placeholder: "0000000", autocomplete: "email" %></h4></td>
+            </tr>
+            <tr>
+              <td class="text-center"><%= link_to "◀︎Back", customer_path, class: "btn badge-light btn-md" %>
+              <%= f.submit "編集内容を保存", class: "btn btn-success"%><% end %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  <div class="row">
-      <%#= link_to '退会する', customers_unsubscribe_path, class: "btn btn-danger mt-2"%>
+
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-5">
+
+      </div>
+        <%= link_to '退会する', customers_unsubscribe_path, class: "btn btn-danger mt-2"%>
+    </div>
   </div>
-</div>

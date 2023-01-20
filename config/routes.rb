@@ -6,7 +6,8 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 scope module: :public do
-  resources :customers, only: [:show, :edit]
+  resources :customers, only: [:show, :edit, :update]
+  get 'customers/unsubscribe' => 'customers#unsubscribe'
   root to: "homes#top"
   resources :messages, only: [:show, :index]
   get'homes/about' => 'homes#about', as: 'about'
@@ -18,7 +19,6 @@ scope module: :public do
 # # # get 'orders/complete' => 'orders#complete'
 # # # resources :orders, only: [:new, :create, :index, :show]
 # # # resources :addresses, only: [:new, :index, :show, :create, :update, :destroy, :edit]
-  # get 'customers/unsubscribe' => 'customers#unsubscribe'
 # # # get 'customers/information' => 'customers#show'
 # # # get 'orders/confirm' => 'orders#confirm'
 # # # patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
