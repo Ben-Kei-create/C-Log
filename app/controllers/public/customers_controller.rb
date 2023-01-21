@@ -1,22 +1,23 @@
 class Public::CustomersController < ApplicationController
 # # Cinema Logbook
-# #  def new
-# #   @customer = Customer.new
-# #  end
+ def new
+  @impression = Impression.new
+ end
 
  def show
    @customer = Customer.find(current_customer.id)
    @profile_image = @customer.profile_image
+   @impression = @customer.impressions.order(created_at: :desc).first
  end
 
-# #  def withdrawal
-# #    @customer = Customer.find(params[:id])
-# #     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-# #    @customer.update(is_deleted: true)
-# #    reset_session
-# #    flash[:notice] = "退会処理を実行いたしました"
-# #    redirect_to root_path
-# #  end
+ def withdrawal
+   @customer = Customer.find(params[:id])
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+   @customer.update(is_deleted: true)
+   reset_session
+   flash[:notice] = "退会処理を実行いたしました"
+   redirect_to root_path
+ end
 
  def edit
    @customer = Customer.find(current_customer.id)
@@ -32,7 +33,6 @@ private
  def customer_params
     params.require(:customer).permit(:profile_image, :name, :name_kana, :postal_code, :address, :telephone_number, :email)
  end
-
 end
 
 

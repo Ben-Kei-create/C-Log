@@ -1,27 +1,33 @@
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <h2 class="pagetitle"><i class="fas fa-user"></i>Withdrawal</h2>
+<%= flash[:notice] %>
+</nav>
 
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col text-center mt-4">-->
-<!--      <h4><strong>本当に退会しますか？</strong></h4>-->
-<!--    </div>-->
-<!--  </div>-->
 
-<!--  <div class="row">-->
-<!--    <div class="col text-center mt-4">-->
-<!--      退会すると、会員登録情報や<br>-->
-<!--      これまでの購入履歴が閲覧できなくなります。<br>-->
-<!--      退会する場合は、「退会する」をクリックしてください。<br>-->
-<!--    </div>-->
-<!--  </div>-->
+<div class="container">
+  <div class="row">
+    <div class="col text-center mt-4">
+      <h3><strong>本当に退会しますか？</strong></h3>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col text-center mt-4">-->
-<!--      <%#= link_to customer_path(current_customer), class: 'nav-link' do %>-->
-<!--        <button type="button" class="btn btn-primary">退会しない</button>-->
-<!--      <%# end %>-->
-<!--    </div>-->
-<!--    <div class="col text-center mt-4">-->
-<!--      <%#= link_to "退会する", withdrawal_path(current_customer), method: :patch, class: "btn btn-danger", data: {confirm: "削除しますか？"} %>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+  <div class="row">
+    <h4 class="col text-center mt-4">
+      退会すると、会員登録情報や<br>
+      これまでの購入履歴が閲覧できなくなります。<br>
+      退会する場合は、「退会する」をクリックしてください。<br>
+    </h4>
+  </div>
+
+  <div class="row">
+    <div class="col text-center mt-4">
+      <%= link_to customer_path(current_customer), class: 'nav-link' do %>
+        <button type="button" class="btn btn-primary">退会しない</button>
+      <% end %>
+    </div>
+    <div class="col text-center mt-4">
+      <%= link_to "退会する", withdrawal_path(current_customer), method: :patch, class: "btn btn-danger", data: {confirm: "削除しますか？"} %>
+    </div>
+  </div>
+</div>

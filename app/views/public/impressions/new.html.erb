@@ -1,0 +1,27 @@
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <h2 class="pagetitle"><i class="fas fa-user"></i>Impression Create</h2>
+<%= flash[:notice] %>
+</nav>
+
+      <div class="row mt-5 justify-content-md-center">
+        <div class="col-2">
+        <%= link_to "◀︎一覧へ戻る", root_path, class: "btn badge-dark btn-md" %>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-3"></div>
+          <div class="col-4">
+          <h4><strong>Impression</strong>は、ユーザーの”今”をお届けするページです。<br>また、あなたがサイトを訪問した時に、
+          <br>ユーザーのオススメしたい映画と感想を<br>チェックすることができます。<p>ぜひ、あなたも”今”を体験してみましょう！
+            <%= form_with model: @impression, url: impressions_path, method: :post do |f| %>
+            <h3>あなたが今一番オススメしたい映画を登録</h3><%= f.text_field :best_movie, placeholder: "Star Wars", size: "40x20" %><p>
+            <h3>映画の感想を登録<%= ' ' %></h3><%= f.text_area :recommend_movie, placeholder: "初めて観たSF映画でした。懐かしいジェダイが復活するなどで感動もあり、圧巻のラストシーンでした。最高傑作でした！", size: "40x5" %><br>
+            <%= f.submit '投稿', class: "btn btn-dark mb-3 btn-lg" %>
+            <% end %>
+          </div>
+        <div class="col-5 mt-5">
+          <%= image_tag 'Impression_new.jpg', size: "600x400" %>
+        </div>
+      </div>

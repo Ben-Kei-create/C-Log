@@ -6,14 +6,14 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 scope module: :public do
-  resources :customers, only: [:show, :edit, :update]
   get 'customers/unsubscribe' => 'customers#unsubscribe'
+  resources :customers, only: [:show, :edit, :update]
   root to: "homes#top"
   resources :messages, only: [:show, :index]
-  get'homes/about' => 'homes#about', as: 'about'
+  get 'homes/about' => 'homes#about', as: 'about'
   get 'movies/search' => 'movies#search'
+  resources :impressions, only: [:new, :create, :edit, :update, :index]
   resources :movies, only: [:show]
-# # # resources :items, only: [:index, :show]
 # # # delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'cart_items_destroy_all'
 # # # resources :cart_items, only: [:index, :destroy, :create, :update]
 # # # get 'orders/complete' => 'orders#complete'
@@ -21,7 +21,7 @@ scope module: :public do
 # # # resources :addresses, only: [:new, :index, :show, :create, :update, :destroy, :edit]
 # # # get 'customers/information' => 'customers#show'
 # # # get 'orders/confirm' => 'orders#confirm'
-# # # patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 # # # post 'orders/confirm' => 'orders#confirm'
 # # # post 'customers/information' => 'customers#new'
 end

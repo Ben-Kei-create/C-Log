@@ -41,8 +41,11 @@
               <td style="width: 60%"><h4><%= f.text_field :email, size: "30*30", placeholder: "0000000", autocomplete: "email" %></h4></td>
             </tr>
             <tr>
-              <td class="text-center"><%= link_to "◀︎Back", customer_path, class: "btn badge-light btn-md" %>
-              <%= f.submit "編集内容を保存", class: "btn btn-success"%><% end %></td>
+              <td>
+                <%= link_to "◀︎Back", customer_path, class: "btn badge-light btn-sm"%>
+                <%= f.submit "編集内容を保存", class: "btn btn-success  btn-md"%><% end %>
+                <%= link_to '退会する', customers_unsubscribe_path, class: "btn btn-danger btn-md"%>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -54,6 +57,5 @@
       <div class="col-5">
 
       </div>
-        <%= link_to '退会する', customers_unsubscribe_path, class: "btn btn-danger mt-2"%>
     </div>
   </div>

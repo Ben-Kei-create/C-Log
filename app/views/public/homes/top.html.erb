@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="row mt-5 mx-auto">
+    <div class="row mx-auto">
       <div class="col">
         <h2 class="text-center">Thank You!!</h2>
         <h4 class="text-center">
@@ -23,9 +23,13 @@
       </div>
     </div>
 
+  <% if customer_signed_in? %>
     <div class="row mt-4 justify-content-md-center">
-      <h2 class="text-center">IMPRESSION~会員時のみ閲覧可能~</h2><span><%= link_to "過去のIMPRESSION▶︎▶︎", messages_path, class: "btn badge-dark btn-md" %>
+      <h2 class="text-center">
+      <%= link_to  new_impression_path, class: "badge-dark btn-md" do %>IMPRESSION<% end %>
+      </h2>
     </div>
+
 
     <div class="row mt-4 justify-content-md-center">
         <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
@@ -54,14 +58,23 @@
             <p class="card-text text-white">Recommend_Movie</p>
             <h4 class="card-title bg-secondary">Disney ~美女と野獣~</h4>
           </div>
+          <%= link_to "もっと観る▶︎▶︎", messages_path, class: "btn badge-dark btn-md" %>
         </div>
       </div>
+
       <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
-
-
     <div class="row mt-4 justify-content-md-center">
-      <h2 class="text-center">PICK UP NEWS</h2><span><%= link_to "過去のPICK UP NEWS▶︎▶︎", messages_path, class: "btn badge-light btn-md" %>
+      <div class="col-4"></div>
+      <div class="col">
+        <h2 class="text-center">
+        <%= link_to messages_path, class: "badge-light btn-md" do %>PICK UP NEWS<% end %>
+        </h2>
+      </div>
+      <div class="col">
+        <%= link_to "もっと観る▶︎▶︎", messages_path, class: "btn badge-light btn-md" %>
+      </div>
     </div>
+
     <div class="row mt-4 justify-content-md-center">
         <% @messages.each do |me| %>
           <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
@@ -74,12 +87,8 @@
           </div>
         <% end %>
     </div>
+    <% end %>
 
-    <div class="mx-5">
-
-    </div>
-
-  </div>
 
   <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
 
