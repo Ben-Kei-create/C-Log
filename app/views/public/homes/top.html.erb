@@ -32,8 +32,9 @@
 
 
     <div class="row mt-4 justify-content-md-center">
+      <% @impression.each do |im| %>
         <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-          <div class="card-header">Customer1</div>
+          <div class="card-header"><%= %></div>
           <div class="card-body">
             <p class="card-text text-white">Best_Movie</p>
             <h4 class="card-title bg-secondary">Star Wars</h4>
