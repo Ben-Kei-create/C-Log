@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'movies/public/search'
+  get 'movies/show'
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -12,8 +14,8 @@ scope module: :public do
   resources :messages, only: [:show, :index]
   get 'homes/about' => 'homes#about', as: 'about'
   get 'movies/search' => 'movies#search'
-  resources :impressions, only: [:new, :create, :edit, :update, :index]
-  resources :movies, only: [:show]
+  resources :impressions, only: [:new, :create, :show, :edit, :update, :index]
+  resources :movies, only: [:show, ]
 # # # delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'cart_items_destroy_all'
 # # # resources :cart_items, only: [:index, :destroy, :create, :update]
 # # # get 'orders/complete' => 'orders#complete'

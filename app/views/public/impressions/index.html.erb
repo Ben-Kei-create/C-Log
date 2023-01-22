@@ -19,16 +19,16 @@
             <thead class="thead-dark">
               <tr>
                 <th style="width: 15%"><h4>追加日時</h4></th>
-                <th style="width: 15%"><h4>オススメ映画</h4></th>
+                <th style="width: 15%"><h4>映画タイトル</h4></th>
                 <th style="width: 70%"><h4>オススメした理由</h4></th>
               </tr>
             </thead>
            <% @impression.each do |im| %>
             <tbody>
               <tr>
-                <td><%= link_to im.created_at, admin_message_path(me.id) %></td>
-                <td><%= im.best_movie %></td>
-                <td><%= im.recommend_movie %></td>
+                <td><%= l im.created_at, format: :short %></td>
+                <td><h4><%= im.best_movie %></h4></td>
+                <td><h4><%= im.recommend_movie %></h4></td>
               <tr>
             </tbody>
             <% end %>

@@ -24,51 +24,37 @@
     </div>
 
   <% if customer_signed_in? %>
-    <div class="row mt-4 justify-content-md-center">
-      <h2 class="text-center">
-      <%= link_to  new_impression_path, class: "badge-dark btn-md" do %>IMPRESSION<% end %>
-      </h2>
-    </div>
-
-
-    <div class="row mt-4 justify-content-md-center">
-      <% @impression.each do |im| %>
-        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-          <div class="card-header"><%= %></div>
-          <div class="card-body">
-            <p class="card-text text-white">Best_Movie</p>
-            <h4 class="card-title bg-secondary">Star Wars</h4>
-            <p class="card-text text-white">Recommend_Movie</p>
-            <h4 class="card-title bg-secondary">Disney ~美女と野獣~</h4>
-          </div>
-        </div>
-        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-          <div class="card-header">Customer2</div>
-          <div class="card-body">
-            <p class="card-text text-white">Best_Movie</p>
-            <h4 class="card-title bg-secondary">Star Wars</h4>
-            <p class="card-text text-white">Recommend_Movie</p>
-            <h4 class="card-title bg-secondary">Disney ~美女と野獣~</h4>
-          </div>
-        </div>
-        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-          <div class="card-header">Customer3</div>
-          <div class="card-body">
-            <p class="card-text text-white">Best_Movie</p>
-            <h4 class="card-title bg-secondary">Star Wars</h4>
-            <p class="card-text text-white">Recommend_Movie</p>
-            <h4 class="card-title bg-secondary">Disney ~美女と野獣~</h4>
-          </div>
-          <%= link_to "もっと観る▶︎▶︎", messages_path, class: "btn badge-dark btn-md" %>
-        </div>
+    <div class="row mt-3">
+      <div class="col-5"></div>
+      <div class="col">
+        <h2>IMPRESSION</h2>
+      </div>
+      <div class="col">
+        <%= link_to "投稿する︎", new_impression_path, class: "btn badge-dark btn-md" %>
+        <%= link_to "もっと観る▶︎▶︎", impressions_path, class: "btn badge-dark btn-md" %>
+      </div>
       </div>
 
-      <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
+    <div class="row mt-4 justify-content-md-center">
+      <% @impressions.each do |im| %>
+        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+          <div class="card-header">投稿者id：<%= im.customer_id %></div>
+            <div class="card-body">
+              <h4 class="card-text text-warning">Best Movie!</h4>
+              <p class="card-title bg-secondary"><%= im.best_movie.truncate(20) %></p>
+              <h4 class="card-text text-warning">Impression!</h4>
+              <p class="card-title bg-secondary"><%= im.recommend_movie.truncate(20) %></p>
+            </div>
+            <%= link_to "詳しくみる▶︎", impression_path(im), class: "btn badge-dark btn-md" %>
+        </div>
+      <% end %>
+    </div>
+
     <div class="row mt-4 justify-content-md-center">
       <div class="col-4"></div>
       <div class="col">
         <h2 class="text-center">
-        <%= link_to messages_path, class: "badge-light btn-md" do %>PICK UP NEWS<% end %>
+        PICK UP NEWS
         </h2>
       </div>
       <div class="col">
@@ -79,37 +65,13 @@
     <div class="row mt-4 justify-content-md-center">
         <% @messages.each do |me| %>
           <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-            <div class="card-header">投稿日：<%= me.created_at %></div>
+            <div class="card-header text-center text-primary">投稿日：<%= l me.created_at, format: :short %></div>
               <div class="card-body">
                 <h4 class="card-title text-dark">タイトル</h4><%= strip_tags(me.title).truncate(20) %><p>
                   <h4 class="card-text">本文</h4><%= strip_tags(me.information).truncate(20) %><p>
-                  <%= link_to "詳しくみる▶︎", message_path(me), class: "btn badge-light btn-md" %>
               </div>
+              <%= link_to "詳しくみる▶︎", message_path(me), class: "btn badge-light btn-md" %>
           </div>
         <% end %>
     </div>
     <% end %>
-
-
-  <%#= paginate @boards, theme: 'twitter-bootstrap-4' %>
-
-
-
-<!--  <div class="row mt-4">-->
-<!--    <%# @items.each do |t| %>-->
-<!--      <div class="col-md-3">-->
-<!--        <div class="card mb-4 shadow-sm">-->
-<!--　　　　　<%#= image_tag t.get_profile_image(100,100), width: '100%', height: '80%' %><br>-->
-<!--　　　　  <%# end %>-->
-<!--          <div class="card-body">-->
-<!--            商品名<%#= t.name %><p>-->
-<!--            ￥<%#= t.price %>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    <%# end %>-->
-<!--  </div>-->
-<!--  </div>-->
-
-
-<!--</div>-->

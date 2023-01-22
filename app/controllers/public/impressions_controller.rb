@@ -1,4 +1,5 @@
 class Public::ImpressionsController < ApplicationController
+
   def new
     @impression = Impression.new
   end
@@ -12,10 +13,20 @@ class Public::ImpressionsController < ApplicationController
     end
   end
 
+  def show
+    @impression = Impression.find(params[:id])
+  end
+
+  def index
+  @impression = Impression.all
+  @impression = Impression.page(params[:page]).per(10)
+
+  end
+
 private
 
   def impression_params
-      params.require(:impression).permit(:best_movie, :recommend_movie)
+      params.require(:impression).permit(:best_movie, :recommend_movie, :created_at, :updated_at)
   end
 end
 
@@ -43,11 +54,6 @@ end
 #   @genres = Genre.all
 #   end
 
-#   def show
-#   @post_image = PostImage.new
-#   @item = Item.find(params[:id])
-#   @items = Item.all
-#   end
 
 #   def edit
 #     @item = Item.find(params[:id])
