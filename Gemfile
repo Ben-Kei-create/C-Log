@@ -31,8 +31,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3'
+  gem 'sqlite3' #do ~ end内部に追加。他のgemは残してください。
 end
+
+group :production do
+  gem 'pg'
+end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -43,6 +48,8 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rubocop', require: false
+
 end
 
 group :test do
@@ -54,14 +61,6 @@ end
 
 gem 'bootstrap4-kaminari-views'
 gem 'devise'
-
-group :development do
-  gem 'rubocop', require: false
-end
-
-group :production do
-  gem 'pg'
-end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
