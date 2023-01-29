@@ -1,7 +1,7 @@
 <%= flash[:notice] %>
 <nav class="navbar navbar-dark" style="background-color:#696969">
 　<div class="container">
-    <h2 class="pagetitle">Log In</h2>
+    <h2 class="pagetitle"><i class="fas fa-sign-in-alt"></i>Log In</h2>
 </nav>
   　<div class="row mt-4 justify-content-md-center">
         <%= form_with model: @customer, url: session_path(resource_name) do |f| %>

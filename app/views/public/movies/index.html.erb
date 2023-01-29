@@ -1,13 +1,25 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-pen"></i>Search</h2>
+      <h2 class="pagetitle"><i class="fas fa-eye"></i>Search</h2>
         <%= flash[:notice] %>
     </div>
 </nav>
 
+    <h2 class="row mt-3 justify-content-md-center text-center">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">Let's Search the Movies!!</p>
+        </div>
+        <%= image_tag 'about1.png' %>
+        <div class="card-body">
+          <p class="card-text">↓Check the Movies!↓</p>
+        </div>
+      </div>
+    </h2>
+
     <div class="row mt-3 justify-content-md-center">
-      <%= form_tag(root_path, method: :get) do %>
+      <%= form_tag(movies_path, method: :get) do %>
       <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title..' %>
       <%= submit_tag '検索する' %>
       <% end %>
@@ -24,14 +36,14 @@
            <div class="card">
              <div class="card-upperinfo">
              <%if movieinfo['table']['results'][i]['table']['title'].present?%>
-               <h3><%= link_to movieinfo['table']['results'][i]['table']['title'],detail_path(movieinfo['table']['results'][i]['table']['id']) %></h3>
+               <h3><%= link_to movieinfo['table']['results'][i]['table']['title'], movie_path(movieinfo['table']['results'][i]['table']['id'])%></h3>
              <%end%>
              <% if movieinfo['table']['results'][i]['table']['release_date'].present? %>
                <p class="release-date"><%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
              <%end%>
              </div>
              <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
-               <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'],class: "card-img" %></p>
+               <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'], class: "card-img" %></p>
              <%end%>
            </div>
            <% i += 1%>
@@ -40,31 +52,43 @@
         <%else%>
     </div>
 
-    <div class="row mt-3 text-center">
-      <h2>Trend</h2>
-    </div>
+    <!--トレンドを表示しておく-->
+    <h2 class="row mt-5 justify-content-md-center text-center">
+      Trend<br>
+      ==============================================
+    </h2>
+    <div class="row justify-content-md-center mt-3">
 
-    <div class="row mt-3 text-center">
     <% movieinfo = JSON.parse((Tmdb::Movie.popular).to_json) %>
     <% i = 0 %>
-      <div class="card-wrapper">
+        <!--<div>-->
       <% while i < movieinfo['table']['results'].count %>
-         <div class="card">
-            <div class="card-upperinfo">
+         <!--↓映画のカード-->
+         <div class="card mt-3 mx-3">
+           <!--↓映画表示のヘッダー-->
+            <div class="text-center mt-4">
               <%if movieinfo['table']['results'][i]['table']['title'].present?%>
-                <h3><%= link_to movieinfo['table']['results'][i]['table']['title'], movie_path(movieinfo['table']['results'][i]['table']['id'])%></h3>
+                <!--↓表示映画タイトル文章-->
+                <%= link_to movieinfo['table']['results'][i]['table']['title'].truncate(17) , movie_path(movieinfo['table']['results'][i]['table']['id'])%><br>
               <%end%>
+
               <% if movieinfo['table']['results'][i]['table']['release_date'].present? %>
-                <p class="release-date"><%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
+                <p class="release-date">
+                <%= movieinfo['table']['results'][i]['table']['release_date'] %>
               <%end%>
             </div>
               <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
-                <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'],class: "card-img" %></p>
+                <%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'], class: "card-img"%>
               <%end%>
          </div>
         <% i += 1%>
-        <%end%>
+      <%end%>
       </div>
-        <%end%>
-    </div>
+      <%end%>
+    <!--</div>-->
+    <div class="col"></div>
   </div>
+</div>
+
+
+

@@ -1,4 +1,50 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle">Search</h2>
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-eye"></i>Show</h2>
+    </div>
+    <div class="row">
+      <h4 class="pagetitle"><%= @movie[:tagline] %></h4>
+    </div>
+        <%= flash[:notice] %>
+    </div>
 </nav>
+
+    <div class="row mt-4 text-center">
+      <div class="col-1"></div>
+      <div class="col-6">
+        <h4><strong><%= @movie[:original_title] %></strong></h4>
+        <h4><strong><%= @movie[:title] %></strong></h4>
+        <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:poster_path], class: "img-thumbnail card-img" %>
+
+
+    <div class="table">
+    <thead>
+    <th><th>
+    </thead>
+    <tbody>
+    <td></td>
+    <td></td>
+    </tbody>
+    
+        <h4>製作年</h4><%= @movie[:release_date] %><br>
+            <h4>あらすじ</h4>
+      <%= @movie[:overview] %>
+            <h4>ジャンル</h4>
+
+      <%= @movie[:genres][0][:name]%><br>
+      <%= @movie[:genres][1][:name]%><br>
+      <%= @movie[:genres][2][:name]%>
+
+
+      <h4>製作会社</h4>
+      <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:production_companies][0][:logo_path], class: "img-thumbnail width" %>
+      <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:production_companies][1][:logo_path], class: "img-thumbnail width" %>
+
+      <h4>公式ホームページ</h4>
+      <%= @movie[:homepage]%>
+      </div>
+      <div class="col-5">
+      </div>
+  </div>
+<%#= debug @movie %>
