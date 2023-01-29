@@ -4,47 +4,105 @@
       <h2 class="pagetitle"><i class="fas fa-eye"></i>Show</h2>
     </div>
     <div class="row">
-      <h4 class="pagetitle"><%= @movie[:tagline] %></h4>
+      <h3 class="text-white"><%= @movie[:tagline] %></h3>
     </div>
         <%= flash[:notice] %>
-    </div>
 </nav>
-
-    <div class="row mt-4 text-center">
-      <div class="col-1"></div>
+    <div class="row mt-3 text-center">
+      <div class="col-2"></div>
+      <div class="col-3">
+        <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:poster_path], class: "mt-5 img-thumbnail poster" %><br>
+        <%= link_to "検索一覧へ︎", movies_path, class: "btn badge-light btn-md mt-3" %>
+      </div>
       <div class="col-6">
-        <h4><strong><%= @movie[:original_title] %></strong></h4>
-        <h4><strong><%= @movie[:title] %></strong></h4>
-        <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:poster_path], class: "img-thumbnail card-img" %>
-
-
-    <div class="table">
-    <thead>
-    <th><th>
-    </thead>
-    <tbody>
-    <td></td>
-    <td></td>
-    </tbody>
-    
-        <h4>製作年</h4><%= @movie[:release_date] %><br>
-            <h4>あらすじ</h4>
-      <%= @movie[:overview] %>
-            <h4>ジャンル</h4>
-
-      <%= @movie[:genres][0][:name]%><br>
-      <%= @movie[:genres][1][:name]%><br>
-      <%= @movie[:genres][2][:name]%>
-
-
-      <h4>製作会社</h4>
-      <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:production_companies][0][:logo_path], class: "img-thumbnail width" %>
-      <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:production_companies][1][:logo_path], class: "img-thumbnail width" %>
-
-      <h4>公式ホームページ</h4>
-      <%= @movie[:homepage]%>
+        <table class="table table-striped table-dark text-center mt-5">
+          <thead>
+            <tr>
+              <th style="width: 30%">
+                <h4>
+                  原題
+                </h4>
+              </th>
+              <th style="width: 70%">
+                <h4>
+                  <%= @movie[:original_title] %>
+                </h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><h4>邦題</h4></th>
+              <th><h4><%= @movie[:title] %></h4></th>
+            </tr>
+            <tr>
+              <th>
+                <h4>
+                  製作年
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <%= @movie[:release_date] %>
+                </h4>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h4>
+                  あらすじ
+                </h4>
+              </th>
+              <td>
+                <h5>
+                  <%= @movie[:overview].blank? ? '該当なし' : @movie[:overview] %>
+                <h5>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <h4>
+                  ジャンル
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <%= @movie[:genres][0][:name]%><br><%= @movie[:genres][1][:name]%><br><%= @movie[:genres][2][:name]%>
+                </h4>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h4>
+                  製作会社
+                </h4>
+              </th>
+              <th>
+                <% @movie[:production_companies].each do |logo_path| %>
+                  <% if logo_path[:logo_path].nil? %>
+                    <%= logo_path[:name] %><br>
+                  <% else %>
+                    <%= image_tag 'https://image.tmdb.org/t/p/w1280' + logo_path[:logo_path], class: "img-thumbnail width d-block mx-auto" %>
+                  <% end %>
+                <% end %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h4>
+                  公式ホームページ
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <%= @movie[:homepage]%>
+                </h4>
+              </th>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="col-5">
-      </div>
+      <div class="col-1"></div>
+    </div>
   </div>
 <%#= debug @movie %>

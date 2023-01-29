@@ -64,12 +64,12 @@
         <!--<div>-->
       <% while i < movieinfo['table']['results'].count %>
          <!--↓映画のカード-->
-         <div class="card mt-3 mx-3">
+         <div class="card mt-3 mx-3 bg-dark">
            <!--↓映画表示のヘッダー-->
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 text-white">
               <%if movieinfo['table']['results'][i]['table']['title'].present?%>
                 <!--↓表示映画タイトル文章-->
-                <%= link_to movieinfo['table']['results'][i]['table']['title'].truncate(17) , movie_path(movieinfo['table']['results'][i]['table']['id'])%><br>
+                <%= link_to movieinfo['table']['results'][i]['table']['title'].truncate(17) , movie_path(movieinfo['table']['results'][i]['table']['id']), class: "text-white"%><br>
               <%end%>
 
               <% if movieinfo['table']['results'][i]['table']['release_date'].present? %>
