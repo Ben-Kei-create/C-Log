@@ -6,16 +6,20 @@
     <div class="row">
       <h3 class="text-white"><%= @movie[:tagline] %></h3>
     </div>
-        <%= flash[:notice] %>
+      <%= flash[:notice] %>
 </nav>
     <div class="row mt-3 text-center">
       <div class="col-2"></div>
       <div class="col-3">
-        <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:poster_path], class: "mt-5 img-thumbnail poster" %><br>
+        <% if @movie[:poster_path].nil? %>
+          <%= "ポスターがありません。" %><br>
+        <% else %>
+          <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @movie[:poster_path], class: "mt-5 img-thumbnail poster" %><br>
+        <% end %>
         <%= link_to "検索一覧へ︎", movies_path, class: "btn badge-light btn-md mt-3" %>
       </div>
       <div class="col-6">
-        <table class="table table-striped table-dark text-center mt-5">
+        <table class="table table-striped table-dark text-center mt-2">
           <thead>
             <tr>
               <th style="width: 30%">
@@ -54,9 +58,9 @@
                 </h4>
               </th>
               <td>
-                <h5>
+                <h4>
                   <%= @movie[:overview].blank? ? '該当なし' : @movie[:overview] %>
-                <h5>
+                <h4>
               </td>
             </tr>
             <tr>
@@ -67,7 +71,13 @@
               </th>
               <th>
                 <h4>
-                  <%= @movie[:genres][0][:name]%><br><%= @movie[:genres][1][:name]%><br><%= @movie[:genres][2][:name]%>
+                  <% @movie[:genres].each do |genres| %>
+                    <% if genres[:name].nil? %>
+                      <%= 該当なし %>
+                    <% else %>
+                      <%= genres[:name] %><br>
+                    <% end %>
+                  <% end %>
                 </h4>
               </th>
             </tr>
@@ -95,7 +105,7 @@
               </th>
               <th>
                 <h4>
-                  <%= @movie[:homepage]%>
+                  <%= @movie[:homepage].blank? ? '該当なし' : @movie[:homepage] %>
                 </h4>
               </th>
             </tr>
