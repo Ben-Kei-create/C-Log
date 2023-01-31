@@ -73,7 +73,7 @@
     <div class="row justify-content-md-center mt-3">
     <% movieinfo = JSON.parse((Tmdb::Movie.popular).to_json) %>
     <% i = 0 %>
-¥      <% while i < movieinfo['table']['results'].count %>
+      <% while i < movieinfo['table']['results'].count %>
          <div class="card mt-3 mx-3 bg-dark">
             <div class="text-center mt-4 text-white">
               <%if movieinfo['table']['results'][i]['table']['title'].present?%>
