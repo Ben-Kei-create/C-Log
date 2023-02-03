@@ -1,7 +1,5 @@
 class Public::PostCommentsController < ApplicationController
 
-
-
   def create
     comment = PostComment.new(post_comments_params)
     comment.customer_id = current_customer.id

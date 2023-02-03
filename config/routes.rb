@@ -10,8 +10,10 @@ scope module: :public do
   root to: "homes#top"
   #どちらが必要か？？↓createの部分
   resources :movies, only: [:index, :show, :create, :edit, :update, :destroy] do
+    resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:new, :create, :index]
   end
+
   get 'movies/search' => 'movies#search'
   get 'movies/:id/review' => 'movies#review', as: 'review'
   get 'homes/about' => 'homes#about', as: 'about'

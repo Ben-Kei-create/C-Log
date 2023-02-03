@@ -10,6 +10,7 @@ class Public::MoviesController < ApplicationController
     # @movie = Tmdb::Search.movie()
     # moviedata = Tmdb::Collection.detail(10)
     # pp moviedata
+    # favorites.where(user_id: user.id).exists?
   end
 
   def create

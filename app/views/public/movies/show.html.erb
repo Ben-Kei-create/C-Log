@@ -12,6 +12,19 @@
     <div class="row mt-3 text-center">
       <div class="col-2"></div>
       <div class="col-3">
+
+        <%# if @movie.favorites.where(customer_id: customer.id).exists? %>
+            <!--# 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ-->
+            <%#= link_to movie_favorites_path(params[:id]), method: :delete do %>
+                <!--<span style="color:red;">❤︎</span>-->
+            <%# end %>
+        <%# else %>
+            # 一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ
+            <%= link_to movie_favorites_path(params[:id]), method: :post do %>
+                <span>︎♡</span>
+            <% end %>
+        <%# end %>
+
         <% if @movie[:poster_path].nil? %>
           <%= "ポスターがありません。" %><br>
         <% else %>
