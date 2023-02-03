@@ -1,16 +1,17 @@
 class Public::PostCommentsController < ApplicationController
 
 
-  def new
-    @post_comment = PostComment.new
-  end
 
   def create
-    # post_image = PostImage.find(params[:post_image_id])
-    # comment = current_user.post_comments.new(post_comment_params)
-    # comment.post_image_id = post_image.id
-    # comment.save
-    # redirect_to post_image_path(post_image)
+    comment = PostComment.new(post_comments_params)
+    comment.customer_id = current_customer.id
+    comment.movie_id = params[:movie_id]
+    comment.save
+    redirect_to customer_path(current_customer.id)
+  end
+
+  def index
+
   end
 
   private

@@ -46,7 +46,7 @@
                 </li>
                 <li>
                   <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-users"></i><span>A</span>bout
+                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
                   <% end %>
                 </li>
                 <li>
@@ -55,13 +55,8 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-pen"></i><%= "  " %><span>L</span>og
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-comment"></i><%= "  " %><span>C</span>omment
+                  <%= link_to comment_path(current_customer), class: 'nav-link text-white' do %>
+                  <i class="fas fa-comment"></i><%= "  " %><span>R</span>eview
                   <% end %>
                 </li>
                 <li>

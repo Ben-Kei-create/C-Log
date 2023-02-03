@@ -28,6 +28,10 @@ class Public::CustomersController < ApplicationController
    redirect_to customer_path(current_customer)
   end
 
+  def comment
+   @post_comment = PostComment.all
+  end
+
 private
 
  def customer_params

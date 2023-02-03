@@ -6,15 +6,20 @@ class Public::MoviesController < ApplicationController
 
   def show
     @movie = Tmdb::Movie.detail(params[:id])
+    @post_comment = PostComment.new
     # @movie = Tmdb::Search.movie()
     # moviedata = Tmdb::Collection.detail(10)
     # pp moviedata
-    @post_comment = PostComment.new
   end
 
   def create
-    
-    redirect_to customer_path(:id)
+    @post_comment = PostComment.find(params[:post_comment])
+    # comment = current_customer.post_comments.new(post_comment_params)
+    comment = PostComment.new(post_comment_params)
+    # comment.customer_id = current_customer.id
+    # comment.post_comment_id = post_image.id
+    comment.save
+    redirect_to customer_path(current_customer.id)
   end
 
   def index
@@ -22,7 +27,13 @@ class Public::MoviesController < ApplicationController
     pp @moviedata
   end
 
-  def post_comments_params
+  def review
+    @review = PostComment.where(movie_id: params[:id])
+  end
+
+  private
+
+  def post_comment_params
     params.require(:post_comment).permit(:comment, :customer_id, :movie_id)
   end
 

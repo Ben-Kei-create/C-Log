@@ -1,0 +1,44 @@
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-comment"></i>Review</h2>
+    </div>
+    <div class="row">
+      <h3 class="text-white"></h3>
+    </div>
+      <%= flash[:notice] %>
+</nav>
+
+    <div class="row mt-4 text-right">
+      <div class="col-md-11">
+        <%= link_to "戻る", customer_path(current_customer), class: 'btn btn-dark btn-md' %>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-1"></div>
+        <div class="col-10">
+          <table class="table table-bordered text-center table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th style="width: 15%"><h4>追加日時</h4></th>
+                <th style="width: 15%"><h4>映画作品番号</h4></th>
+                <th style="width: 70%"><h4>感想レビュー</h4></th>
+              </tr>
+            </thead>
+           <% @post_comment.each do |post_comment| %>
+            <tbody>
+              <tr>
+                <td><%= post_comment.created_at %></td>
+                <td><%= post_comment.movie_id %></td>
+                <td><%= post_comment.comment %></td>
+              <tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
+      <div class="col-1"></div>
+    </div>
+
+
+<!--, admin_message_path(me.id)-->

@@ -8,15 +8,19 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 scope module: :public do
   root to: "homes#top"
-  resources :movies, only: [:index, :show] do
-    resources :post_comments, only: [:new, :create]
+  #どちらが必要か？？↓createの部分
+  resources :movies, only: [:index, :show, :create, :edit, :update, :destroy] do
+    resources :post_comments, only: [:new, :create, :index]
   end
   get 'movies/search' => 'movies#search'
+  get 'movies/:id/review' => 'movies#review', as: 'review'
   get 'homes/about' => 'homes#about', as: 'about'
   resources :messages, only: [:show, :index]
   resources :impressions, only: [:new, :create, :show, :edit, :update, :index]
+  get '/customers/:id/comment' => 'customers#comment', as: 'comment'
   get 'customers/unsubscribe' => 'customers#unsubscribe'
   resources :customers, only: [:show, :edit, :update]
+  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 # # # delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'cart_items_destroy_all'
 # # # resources :cart_items, only: [:index, :destroy, :create, :update]
 # # # get 'orders/complete' => 'orders#complete'
@@ -24,7 +28,6 @@ scope module: :public do
 # # # resources :addresses, only: [:new, :index, :show, :create, :update, :destroy, :edit]
 # # # get 'customers/information' => 'customers#show'
 # # # get 'orders/confirm' => 'orders#confirm'
-  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 # # # post 'orders/confirm' => 'orders#confirm'
 # # # post 'customers/information' => 'customers#new'
 end
