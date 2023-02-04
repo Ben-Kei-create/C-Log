@@ -75,7 +75,7 @@
           <tbody>
             <tr>
               <th><h4>いいねした作品数<h4></th>
-              <th><h4><%= @customer.email %>回<h4></th>
+              <th><h4><%= Favorite.where(customer_id: current_customer.id).count %>回<h4></th>
             </tr>
           </tbody>
         </table>

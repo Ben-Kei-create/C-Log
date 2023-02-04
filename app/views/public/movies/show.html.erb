@@ -13,18 +13,6 @@
       <div class="col-2"></div>
       <div class="col-3">
 
-        <%# if @movie.favorites.where(customer_id: customer.id).exists? %>
-            <!--# 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ-->
-            <%#= link_to movie_favorites_path(params[:id]), method: :delete do %>
-                <!--<span style="color:red;">❤︎</span>-->
-            <%# end %>
-        <%# else %>
-            # 一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ
-            <%= link_to movie_favorites_path(params[:id]), method: :post do %>
-                <span>︎♡</span>
-            <% end %>
-        <%# end %>
-
         <% if @movie[:poster_path].nil? %>
           <%= "ポスターがありません。" %><br>
         <% else %>
@@ -35,7 +23,18 @@
         <%= form_with url: movie_post_comments_path(params[:id]), method: :post, model: [@movie, @post_comment] do |f| %>
         <%= f.text_area :comment, placeholder: "　　　　この映画の感想レビューを書く", class: "mt-3", size: "40×30" %><br>
         <%= f.submit '投稿', class: "badge-light btn-sm mx-2" %>
+        <% end %><br>
+
+        <% if Favorite.where(customer_id: current_customer.id, movie_id: params[:id]).exists? %>
+            <%= link_to movie_favorites_path(params[:id]), method: :delete do %>
+                <span style="color:red;">🧡いいねしました。︎</span>
+            <% end %>
+        <% else %>
+            <%= link_to movie_favorites_path(params[:id]), method: :post do %>
+                <span>♡いいねをする</span>
+            <% end %>
         <% end %>
+
 
       </div>
       <div class="col-6">
