@@ -9,6 +9,7 @@ scope module: :public do
   root to: "homes#top"
   resources :movies, only: [:index, :show, :create, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
+    resource :watches, only: [:create, :destroy]
     resources :post_comments, only: [:new, :create, :index]
   end
   get 'movies/search' => 'movies#search'
