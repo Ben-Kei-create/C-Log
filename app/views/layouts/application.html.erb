@@ -45,13 +45,13 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
+                  <%= link_to movies_path, class: 'nav-link text-white' do %>
+                  <i class="fas fa-eye"></i><%= "  " %><span>S</span>earch
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to movies_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-eye"></i><%= "  " %><span>S</span>earch
+                  <%= link_to impressions_path, class: 'nav-link text-white' do %>
+                  <i class="fas fa-rss"></i><%= "  " %><span>I</span>mpression
                   <% end %>
                 </li>
                 <li>
@@ -68,6 +68,12 @@
                   <%= link_to favorites_path(current_customer), class: 'nav-link text-white' do %>
                   <i class="fab fa-fort-awesome"></i><%= "  " %><span>L</span>ike
                   <% end %>
+                </li>
+                <li>
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
+                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
+                  <% end %>
+                </li>
                 <li>
                   <%= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>
                   <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogout

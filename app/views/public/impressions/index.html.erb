@@ -1,11 +1,16 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle"><i class="fas fa-tv"></i>Impression List</h2>
-<%= flash[:notice] %>
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-rss"></i><%= '  ' %>Impression List</h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white">ユーザーのImpressionです。</h4>
+    </div>
+      <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
-      <div class="col-md-10">
+      <div class="col-md-11">
         <%= link_to new_impression_path, class: 'nav-link' do %>
           <h4><i class="fas fa-pen-square"></i>新規投稿する</h4>
         <% end %>
@@ -13,8 +18,8 @@
     </div>
 
     <div class="row mt-4">
-      <div class="col-2"></div>
-        <div class="col-8">
+      <div class="col-1"></div>
+        <div class="col-10">
           <table class="table table-bordered text-center table-hover">
             <thead class="thead-dark">
               <tr>
@@ -34,5 +39,5 @@
             <% end %>
           </table>
         </div>
-      <div class="col-2"></div>
+      <div class="col-1"></div>
     </div>
