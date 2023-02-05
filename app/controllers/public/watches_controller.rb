@@ -11,4 +11,8 @@ class Public::WatchesController < ApplicationController
   @post_Watched.destroy
   redirect_to movie_path(params[:movie_id])
   end
+
+  def index
+  end
+
 end

@@ -60,8 +60,13 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-star"></i><%= "  " %><span>f</span>avorite
+                  <%= link_to watches_path(current_customer), class: 'nav-link text-white' do %>
+                  <i class="fab fa-grav	"></i><%= "  " %><span>W</span>atch
+                  <% end %>
+                <li>
+                <li>
+                  <%= link_to favorites_path(current_customer), class: 'nav-link text-white' do %>
+                  <i class="fab fa-fort-awesome"></i><%= "  " %><span>L</span>ike
                   <% end %>
                 <li>
                   <%= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>

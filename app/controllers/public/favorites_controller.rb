@@ -11,4 +11,8 @@ def destroy
   @post_favorite.destroy
   redirect_to movie_path(params[:movie_id])
 end
+
+def index
+end
+
 end

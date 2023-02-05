@@ -8,10 +8,12 @@ devise_for :customers,skip: [:passwords], controllers: {
 scope module: :public do
   root to: "homes#top"
   resources :movies, only: [:index, :show, :create, :edit, :update, :destroy] do
+  resources :post_comments, only: [:new, :create]
     resource :favorites, only: [:create, :destroy]
-    resource :watches, only: [:create, :destroy]
-    resources :post_comments, only: [:new, :create, :index]
+    resource :watches, only: [:create, :destroy, :index]
   end
+  get '/customers/:id/favorites' => 'favorites#index', as: 'favorites'
+  get '/customers/:id/watches' => 'watches#index', as: 'watches'
   get 'movies/search' => 'movies#search'
   get 'movies/:id/review' => 'movies#review', as: 'review'
   get 'homes/about' => 'homes#about', as: 'about'

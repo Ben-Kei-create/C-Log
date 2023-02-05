@@ -64,7 +64,8 @@
           </tbody>
         </table>
 
-        <h2>Favorite<%= ' ' %><%= link_to "いいねした作品を見る", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %><%= ' ' %><%= link_to "鑑賞した作品を見る", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %></h2>
+        <h2>Favorite<%= ' ' %><%= link_to "いいねした作品を見る", favorites_path(current_customer), class: 'btn btn-dark btn-md' %>
+        <%= ' ' %><%= link_to "鑑賞した作品を見る", watches_path(current_customer), class: 'btn btn-dark btn-md' %></h2>
         <table class="table table-striped table-dark text-center">
           <thead>
             <tr>
