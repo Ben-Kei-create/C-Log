@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle"><i class="fas fa-pen"></i>Customer edit</h2>
+    <h2 class="pagetitle"><i class="fas fa-pen"></i><%= '  ' %>Customer edit</h2>
 <%= flash[:notice] %>
 </nav>
 
@@ -42,9 +42,9 @@
             </tr>
             <tr>
               <td>
-                <%= link_to "◀︎Back", customer_path, class: "btn badge-light btn-sm"%>
-                <%= f.submit "編集内容を保存", class: "btn btn-success  btn-md"%><% end %>
-                <%= link_to '退会する', customers_unsubscribe_path, class: "btn btn-danger btn-md"%>
+                <%= link_to "◀Profileに戻る", customer_path(current_customer), class: "btn badge-dark btn-sm"%>
+                <%= f.submit "保存", class: "btn btn-success  btn-sm"%><% end %>
+                <%= link_to '退会', customers_unsubscribe_path, class: "btn btn-danger btn-sm"%>
               </td>
             </tr>
           </tbody>

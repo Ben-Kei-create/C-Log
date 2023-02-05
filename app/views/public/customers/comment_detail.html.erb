@@ -1,0 +1,58 @@
+<nav class="navbar navbar-dark" style="background-color:#696969">
+  <div class="container">
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-book-reader"></i><%= '  ' %>Review detail</h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white">映画レビューを振り返ります。</h4>
+    </div>
+      <%= flash[:notice] %>
+</nav>
+
+    <div class="row mt-4 text-right">
+      <div class="col-md-11">
+        <%= link_to "Reviewへ", comment_path(current_customer), class: 'btn btn-dark btn-md' %>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <table class="table table-dark text-center mt-3">
+          <thead class="text-left">
+            <tr>
+              <th>
+                <h4>
+                  レビューをした日
+                </h4>
+              </th>
+            </tr>
+            <tr class="text-center">
+              <td>
+                <h5>
+                  <%= @comment_detail.created_at %>
+                </h5>
+              </td>
+            </tr>
+          </thead>
+          <tbody class="text-left">
+            <tr>
+              <th>
+                <h4>
+                  感想レビュー
+                </h4>
+              </th>
+            </tr>
+            <tr class="text-center">
+              <td>
+                <h5>
+                　<%= @comment_detail.comment %>
+                </h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>

@@ -15,8 +15,8 @@ class Public::MoviesController < ApplicationController
 
   def create
     @post_comment = PostComment.find(params[:post_comment])
-    # comment = current_customer.post_comments.new(post_comment_params)
     comment = PostComment.new(post_comment_params)
+    # comment = current_customer.post_comments.new(post_comment_params)    
     # comment.customer_id = current_customer.id
     # comment.post_comment_id = post_image.id
     comment.save

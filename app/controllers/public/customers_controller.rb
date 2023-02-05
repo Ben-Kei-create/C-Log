@@ -29,7 +29,17 @@ class Public::CustomersController < ApplicationController
   end
 
   def comment
-   @post_comment = PostComment.all
+   @post_comments = PostComment.where(customer_id: current_customer.id).page(params[:page]).per(3)
+  end
+
+  def destroy
+   post_comment = PostComment.find_by(id: params[:id])
+   post_comment.delete  # データ（レコード）を削除
+   redirect_to comment_path(current_customer)  # 投稿一覧画面へリダイレクト
+  end
+
+  def comment_detail
+   @comment_detail = PostComment.find(params[:id])
   end
 
 private

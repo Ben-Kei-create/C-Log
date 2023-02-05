@@ -1,17 +1,17 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-comment"></i>Review</h2>
+      <h2 class="pagetitle"><i class="fas fa-comment"></i><%= '  ' %>Review</h2>
     </div>
     <div class="row">
-      <h3 class="text-white"></h3>
+      <h4 class="text-white">これまでのレビューの一覧です。</h4>
     </div>
       <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
       <div class="col-md-11">
-        <%= link_to "戻る", customer_path(current_customer), class: 'btn btn-dark btn-md' %>
+        <%= link_to "My pageへ", customer_path(current_customer), class: 'btn btn-dark btn-md' %>
       </div>
     </div>
 
@@ -23,22 +23,38 @@
               <tr>
                 <th style="width: 15%"><h4>追加日時</h4></th>
                 <th style="width: 15%"><h4>映画作品番号</h4></th>
-                <th style="width: 70%"><h4>感想レビュー</h4></th>
+                <th style="width: 60%"><h4>感想レビュー</h4></th>
+                <th style="width: 10%"><h4>削除</h4></th>
               </tr>
             </thead>
-           <% @post_comment.each do |post_comment| %>
             <tbody>
+           <% @post_comments.each do |post_comment| %>
               <tr>
-                <td><%= post_comment.created_at %></td>
-                <td><%= post_comment.movie_id %></td>
-                <td><%= post_comment.comment %></td>
+                <td>
+                  <%= post_comment.created_at %>
+                </td>
+                <td>
+                  <%= link_to movie_path(post_comment.movie_id) do %>
+                  <%= post_comment.movie_id %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to comment_detail_path(post_comment.customer_id, post_comment.id) do %>
+                  <%= post_comment.comment %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to "削除", destroy_comment_path(post_comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                </td>
               <tr>
-            </tbody>
             <% end %>
+            </tbody>
           </table>
+          <%= paginate @post_comments %>
         </div>
       <div class="col-1"></div>
     </div>
+
 
 
 <!--, admin_message_path(me.id)-->

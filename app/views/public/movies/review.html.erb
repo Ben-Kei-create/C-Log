@@ -1,17 +1,17 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-comment"></i><%= '  ' %>Other Review</h2>
+      <h2 class="pagetitle"><i class="fas fa-comments"></i><%= '  ' %>Other Review</h2>
     </div>
     <div class="row">
-      <h3 class="text-white"></h3>
+      <h4 class="text-white">他の人のレビューを参考に映画を選ぶことができます。</h4>
     </div>
       <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
       <div class="col-md-11">
-        <%= link_to "My pageへ", movie_path(params[:id]), class: 'btn btn-dark btn-md' %>
+        <%= link_to "映画詳細へ", movie_path(params[:id]), class: 'btn btn-dark btn-md' %>
       </div>
     </div>
     <div class="row mt-4">
@@ -20,18 +20,22 @@
           <table class="table table-bordered text-center table-hover">
             <thead class="thead-dark">
               <tr>
-                <th style="width: 15%"><h4>追加日時</h4></th>
-                <th style="width: 15%"><h4>映画作品番号</h4></th>
+                <th style="width: 30%"><h4>追加日時</h4></th>
                 <th style="width: 70%"><h4>感想レビュー</h4></th>
               </tr>
             </thead>
            <% @review.each do |review| %>
             <tbody>
               <tr>
-                <td><%= review.created_at %></td>
-                <td><%= review.movie_id %></td>
-                <td><%= review.comment %></td>
-              <tr>
+                <td>
+                  <%= review.created_at %>
+                </td>
+                <td>
+                  <%#= link_to movie_path(review.movie_id) do %>
+                  <%= review.comment %>
+                  <%# end %>
+                </td>
+              </tr>
             </tbody>
             <% end %>
           </table>

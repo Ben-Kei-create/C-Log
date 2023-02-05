@@ -4,8 +4,12 @@ class Public::PostCommentsController < ApplicationController
     comment = PostComment.new(post_comments_params)
     comment.customer_id = current_customer.id
     comment.movie_id = params[:movie_id]
-    comment.save
-    redirect_to customer_path(current_customer.id)
+    #byebug
+    if comment.save
+      redirect_to customer_path(current_customer.id)
+    else
+      redirect_to movie_path(params[:movie_id])
+    end
   end
 
   def index
