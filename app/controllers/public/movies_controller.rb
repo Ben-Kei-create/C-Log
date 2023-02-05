@@ -31,6 +31,8 @@ class Public::MoviesController < ApplicationController
   def review
     @review = PostComment.where(movie_id: params[:id])
   end
+  
+  
 
   private
 
