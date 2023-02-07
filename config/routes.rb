@@ -34,6 +34,7 @@ namespace :admin do
   root to: "homes#top"
   resources :messages, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :customers, only: [:index]
+  get 'admin/comments' => 'customers#comments', as: 'comments'
 end
 end
 # # resources :genres, only: [:index, :create, :edit, :update]

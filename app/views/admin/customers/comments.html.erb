@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <h2 class="pagetitle">
-        <i class="fas fa-rss"></i><%= '  ' %>Message List
+        <i class="fas fa-rss"></i><%= '  ' %>Comment List
       </h2>
     </div>
     <div class="row">
-      <h4 class="text-white">会員へ連絡した内容です。</h4>
+      <h4 class="text-white">会員が投稿した内容です。</h4>
     </div>
       <%= flash[:notice] %>
 </nav>
@@ -30,17 +30,17 @@
                 <th style="width: 70%"><h4>本文</h4></th>
               </tr>
             </thead>
-           <% @messages.each do |me| %>
+           <%# @messages.each do |me| %>
             <tbody>
               <tr>
-                <td><%= link_to me.created_at, admin_message_path(me.id), class: "table_link" %></td>
-                <td><%= me.title.truncate(20) %></td>
-                <td><%= me.information.truncate(100) %></td>
+                <td><%#= link_to me.created_at, admin_message_path(me.id), class: "table_link" %></td>
+                <td><%#= me.title.truncate(20) %></td>
+                <td><%#= me.information.truncate(100) %></td>
               <tr>
             </tbody>
-            <% end %>
+            <%# end %>
           </table>
-          <%= paginate @messages %>
+          <%#= paginate @messages %>
         </div>
       <div class="col-1"></div>
     </div>

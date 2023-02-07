@@ -4,4 +4,10 @@ class Admin::CustomersController < ApplicationController
    @customers = Customer.all
    @customers = Customer.page(params[:page]).per(2)
    end
+
+  def comments
+  end
+
+
+
 end
