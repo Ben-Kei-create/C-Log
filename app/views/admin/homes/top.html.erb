@@ -1,39 +1,46 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle"><i class="fas fa-rss"></i>Message List</h2>
-<%= flash[:notice] %>
+    <div class="row">
+      <h2 class="pagetitle">
+        <i class="fas fa-rss"></i><%= '  ' %>Message List
+      </h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white">会員へ連絡した内容です。</h4>
+    </div>
+      <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
-      <div class="col-md-10">
+      <div class="col-md-11">
         <%= link_to new_admin_message_path, class: 'nav-link' do %>
-          <h4><i class="fas fa-pen-square"></i>新規投稿する</h4>
+          <h4><i class="fas fa-pen-square"></i><%= '  ' %>新規投稿する</h4>
         <% end %>
       </div>
     </div>
 
     <div class="row mt-4">
-      <div class="col-2"></div>
-        <div class="col-8">
+      <div class="col-1"></div>
+        <div class="col-10">
           <table class="table table-bordered text-center table-hover">
             <thead class="thead-dark">
               <tr>
                 <th style="width: 15%"><h4>追加日時</h4></th>
                 <th style="width: 15%"><h4>タイトル</h4></th>
-                <th style="width: 70%"><h4>内容</h4></th>
+                <th style="width: 70%"><h4>本文</h4></th>
               </tr>
             </thead>
            <% @messages.each do |me| %>
             <tbody>
               <tr>
                 <td><%= link_to me.created_at, admin_message_path(me.id) %></td>
-                <td><%= me.title %></td>
-                <td><%= me.information %></td>
+                <td><%= me.title.truncate(20) %></td>
+                <td><%= me.information.truncate(100) %></td>
               <tr>
             </tbody>
             <% end %>
           </table>
+          <%= paginate @messages %>
         </div>
-      <div class="col-2"></div>
+      <div class="col-1"></div>
     </div>
-

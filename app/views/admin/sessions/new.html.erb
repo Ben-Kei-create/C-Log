@@ -1,21 +1,38 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
-　<div class="container">
-    <h2 class="pagetitle">Log In ~Admin~</h2>
-<%= flash[:notice] %>
+  <div class="container">
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-cog"></i><%= '  ' %>Log In</h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white">管理者のログインページです。</h4>
+    </div>
+      <%= flash[:notice] %>
 </nav>
-  　<div class="row mt-4 justify-content-md-center">
+    <div class="row mt-4 justify-content-md-center">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <table class="table table-borderless text-center">
           <thead>
             <tr>
-              <th><h4>メールアドレス</h4></th>
-              <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+              <th>
+                <h4>
+                  メールアドレス
+                </h4>
+              </th>
+              <th>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th><h4>パスワード</h4></th>
-              <th><%= f.password_field :password, autocomplete: "current-password" %></th>
+              <th>
+                <h4>
+                  パスワード
+                </h4>
+              </th>
+              <th>
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              </th>
             </tr>
           </tbody>
         </table>
@@ -25,8 +42,8 @@
             <%= f.label :remember_me %>
           </div>
         <% end %>
-        <div class="actions">
-          <%= f.submit 'ログイン', class: "btn btn-dark mb-3" %>
-        </div>
+          <div class="actions">
+            <%= f.submit 'ログイン', class: "btn btn-dark mb-3" %>
+          </div>
       <% end %>
-<%= render "admin/shared/links" %>
+    <%= render "admin/shared/links" %>

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-comments"></i><%= '  ' %>Other Review</h2>
+      <h2 class="pagetitle"><i class="fas fa-comments"></i><%= '  ' %>Other Reviewes</h2>
     </div>
     <div class="row">
       <h4 class="text-white">他の人のレビューを参考に映画を選ぶことができます。</h4>
@@ -39,9 +39,7 @@
             </tbody>
             <% end %>
           </table>
+          <%= paginate @review %>
         </div>
       <div class="col-1"></div>
     </div>
-
-
-<!--, admin_message_path(me.id)-->

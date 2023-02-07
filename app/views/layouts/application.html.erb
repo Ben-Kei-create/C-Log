@@ -40,13 +40,18 @@
               <% if customer_signed_in? %>
               <div class="cusotmer">
                 <li>
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
+                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
                   <i class="fas fa-user"></i><%= "  " %><span>M</span>ypage
                   <% end %>
                 </li>
                 <li>
                   <%= link_to movies_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-eye"></i><%= "  " %><span>S</span>earch
+                  <i class="fas fa-search"></i><%= "  " %><span>S</span>earch
                   <% end %>
                 </li>
                 <li>
@@ -67,11 +72,6 @@
                 <li>
                   <%= link_to favorites_path(current_customer), class: 'nav-link text-white' do %>
                   <i class="fab fa-fort-awesome"></i><%= "  " %><span>L</span>ike
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
                   <% end %>
                 </li>
                 <li>
@@ -116,7 +116,7 @@
                 </li>
                 <li>
                   <%= link_to movies_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-eye"></i><%= "  " %><span>S</span>earch
+                  <i class="fas fa-search"></i><%= "  " %><span>S</span>earch
                   <% end %>
                 </li>
                 <li>

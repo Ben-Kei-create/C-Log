@@ -1,39 +1,69 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-users"></i><%= '  ' %>Customer List</h2>
+      <h2 class="pagetitle">
+        <i class="fas fa-users"></i><%= '  ' %>Customer List
+      </h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white">会員の一覧です。</h4>
     </div>
       <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
-      <div class="col-md-10">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^
+      <div class="col-md-11">
       </div>
     </div>
+
     <div class="row mt-4">
-      <div class="col-2"></div>
-        <div class="col-8">
-          <table class="table table-bordered text-center table-hover">
+      <div class="col-1"></div>
+        <div class="col-10">
+          <table class="table table-bordered text-center table-hover table-sm">
             <thead class="thead-dark">
               <tr>
-                <th style="width: 25%"><h4>会員ID</h4></th>
-                <th style="width: 25%"><h4>氏名</h4></th>
-                <th style="width: 25%"><h4>メールアドレス</h4></th>
-                <th style="width: 25%"><h4>メールアドレス</h4></th>
-
+                <th style="width: 20%">
+                  <h4>
+                    会員ID
+                  </h4>
+                </th>
+                <th style="width: 30%">
+                  <h4>
+                    氏名(フリガナ)
+                  </h4>
+                </th>
+                <th style="width: 25%">
+                  <h4>
+                    メールアドレス
+                  </h4>
+                </th>
+                <th style="width: 25%">
+                  <h4>
+                    電話番号
+                  </h4>
+                </th>
               </tr>
             </thead>
-           <% @customers.each do |customers| %>
+           <% @customers.each do |customer| %>
             <tbody>
               <tr>
-                <td><%= link_to customers.created_at, admin_message_path(me.id) %></td>
-                <td><%= customers.title %></td>
-                <td><%= customers.information %></td>
+                <td>
+                  <%= link_to customer.id, admin_message_path(customer.id) %>
+                </td>
+                <td>
+                  <%= customer.name %>（<%= customer.name_kana %>）
+                </td>
+                <td>
+                  <%= customer.email %>
+                </td>
+                <td>
+                  <%= customer.telephone_number %>
+                </td>
               <tr>
             </tbody>
-            <%# end %>
+            <% end %>
           </table>
+          <%= paginate @customers %>
         </div>
-      <div class="col-2"></div>
+      <div class="col-1"></div>
     </div>
-
