@@ -2,7 +2,7 @@ class Admin::HomesController < ApplicationController
 
   def top
     @messages = Message.all
-    #@message = Message.page(params[:page]).per(10)
+    @messages = Message.page(params[:page]).per(2)
   end
 
   def destroy
