@@ -6,6 +6,7 @@ class Public::MessagesController < ApplicationController
 
   def index
     @messages = Message.all
+    @messages = Message.page(params[:page]).per(2)
   end
 
 end

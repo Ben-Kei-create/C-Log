@@ -12,7 +12,7 @@
 
     <div class="row mx-auto">
       <div class="col">
-        <h2 class="text-center"><i class="fas fa-heart"></i></span>Thank You!!</h2>
+        <h2 class="text-center"><i class="fas fa-heart"></i><%= '  '  %>Thank You!!</h2>
         <h4 class="text-center">
         <strong>CINEMA-LOG</strong>へようこそ。<br>
         このサイトは、電子版の映画記録NOTEです。<br>
@@ -26,7 +26,7 @@
   <% if customer_signed_in? %>
     <div class="row mt-3">
       <div class="col-4"></div>
-        <h2><i class="fas fa-rss"></i>IMPRESSION</h2>
+        <h2><i class="fas fa-rss"></i><%= '  '  %>IMPRESSION</h2>
       <div class="col">
         <%= link_to "投稿する▶︎︎", new_impression_path, class: "btn badge-dark btn-md" %>
         <%= link_to "もっと観る▶︎▶︎", impressions_path, class: "btn badge-dark btn-md" %>
@@ -50,7 +50,7 @@
 
     <div class="row mt-4 justify-content-md-center">
       <div class="col-4"></div>
-        <h2 class="text-center"><i class="fas fa-newspaper"></i>PICK UP NEWS</h2>
+        <h2 class="text-center"><i class="fas fa-newspaper"></i><%= '  '  %>PICK UP NEWS</h2>
       <div class="col">
         <%= link_to "もっと観る▶︎▶︎", messages_path, class: "btn badge-dark btn-md" %>
       </div>
@@ -59,7 +59,7 @@
     <div class="row mt-4 justify-content-md-center">
         <% @messages.each do |me| %>
           <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-            <div class="card-header text-center text-primary">投稿日：<%= l me.created_at, format: :short %></div>
+            <div class="card-header text-center text-dark">投稿日：<%= l me.created_at, format: :short %></div>
               <div class="card-body">
                 <h4 class="card-title text-dark">タイトル</h4><%= strip_tags(me.title).truncate(20) %><p>
                   <h4 class="card-text">本文</h4><%= strip_tags(me.information).truncate(20) %><p>

@@ -1,13 +1,13 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle"><i class="fas fa-pen"></i>Message edit</h2>
+    <h2 class="pagetitle"><i class="fas fa-pen-square"></i><%= '  ' %>Message edit</h2>
 <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-5 justify-content-md-center">
       <div class="col-1"></div>
       <div class="col-3">
-      <%= link_to "◀︎一覧へ戻る", admin_root_path, class: "btn badge-light btn-md" %>
+      <%= link_to "Message Showへ", admin_message_path(@message.id), class: "btn badge-dark btn-md" %>
       </div>
       <div class="col-4"></div>
     </div>
