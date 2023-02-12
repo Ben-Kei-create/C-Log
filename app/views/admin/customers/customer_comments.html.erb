@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-comment"></i><%= '  ' %>Review</h2>
+      <h2 class="pagetitle"><i class="fas fa-comment"></i><%= '  ' %>Customer Review</h2>
     </div>
     <div class="row">
       <h4 class="text-white"><%= @customer.name %>さんのコメント一覧です。</h4>
@@ -11,7 +11,7 @@
 
     <div class="row mt-4 text-right">
       <div class="col-md-11">
-        <%#= link_to "My pageへ", customer_path(current_customer), class: 'btn btn-dark btn-md' %>
+        <%= link_to "会員詳細へ", admin_customer_path(@customer), class: 'btn btn-dark btn-md' %>
       </div>
     </div>
 

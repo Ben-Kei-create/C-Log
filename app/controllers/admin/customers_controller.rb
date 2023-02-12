@@ -21,6 +21,6 @@ class Admin::CustomersController < ApplicationController
   def customer_comments
    @customer = Customer.find(params[:id])
    @profile_image = @customer.profile_image
-
+   @post_comments = PostComment.where(customer_id: @customer).page(params[:page]).per(3)
   end
 end

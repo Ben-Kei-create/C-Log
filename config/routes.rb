@@ -35,7 +35,7 @@ namespace :admin do
   resources :messages, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :customers, only: [:index, :show]
   get '/comments' => 'customers#comments'
-  get '/customers/:id/comment' => 'customers#customer_comments', as: 'customer_comments'
+  get '/customers/:id/comments' => 'customers#customer_comments', as: 'customer_comments'
 end
 end
 # # resources :genres, only: [:index, :create, :edit, :update]
