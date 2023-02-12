@@ -6,8 +6,14 @@ class Admin::CustomersController < ApplicationController
    end
 
   def comments
+   @reviews = PostComment.all
+#    @reviews = PostComment.where(movie_id: params[:id], customer_id: pa)
   end
 
-
+  def show
+   @customer = Customer.find(params[:id])
+   @profile_image = @customer.profile_image
+   @impression = @customer.impressions.order(created_at: :desc).first
+  end
 
 end

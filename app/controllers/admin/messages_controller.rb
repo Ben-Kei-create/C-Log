@@ -1,4 +1,5 @@
 class Admin::MessagesController < ApplicationController
+#管理者が、会員へ連絡するためのMessage機能です。
 
   def new
     @message = Message.new

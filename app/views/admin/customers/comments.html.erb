@@ -2,20 +2,17 @@
   <div class="container">
     <div class="row">
       <h2 class="pagetitle">
-        <i class="fas fa-rss"></i><%= '  ' %>Comment List
+        <i class="fas fa-users"></i><%= '  ' %>Comments List
       </h2>
     </div>
     <div class="row">
-      <h4 class="text-white">会員が投稿した内容です。</h4>
+      <h4 class="text-white">会員のコメント一覧です。</h4>
     </div>
       <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
       <div class="col-md-11">
-        <%= link_to new_admin_message_path, class: 'nav-link table_link' do %>
-          <h4><i class="fas fa-pen-square table_link"></i><%= '  ' %>新規投稿する</h4>
-        <% end %>
       </div>
     </div>
 
@@ -25,22 +22,39 @@
           <table class="table table-bordered text-center table-hover table-sm">
             <thead class="thead-dark">
               <tr>
-                <th style="width: 15%"><h4>追加日時</h4></th>
-                <th style="width: 15%"><h4>タイトル</h4></th>
-                <th style="width: 70%"><h4>本文</h4></th>
+                <th style="width: 50%">
+                  <h4>
+                    会員ID
+                  </h4>
+                </th>
+                <th style="width: 50%">
+                  <h4>
+                    氏名(フリガナ)
+                  </h4>
+                </th>
               </tr>
             </thead>
-           <%# @messages.each do |me| %>
+           <% @reviews.each do |reviews| %>
             <tbody>
               <tr>
-                <td><%#= link_to me.created_at, admin_message_path(me.id), class: "table_link" %></td>
-                <td><%#= me.title.truncate(20) %></td>
-                <td><%#= me.information.truncate(100) %></td>
+                <td>
+                  <%= reviews.comment %>
+                  <%#= link_to customer.id, admin_message_path(customer.id), class:"table_link" %>
+                </td>
+                <td>
+                  <%#= reviews.name %>
+                </td>
+                <!--<td>-->
+                <!--  <%#= customer.email %>-->
+                <!--</td>-->
+                <!--<td>-->
+                <!--  <%#= customer.telephone_number %>-->
+                <!--</td>-->
               <tr>
             </tbody>
-            <%# end %>
+            <% end %>
           </table>
-          <%#= paginate @messages %>
+          <%#= paginate @review %>
         </div>
       <div class="col-1"></div>
     </div>

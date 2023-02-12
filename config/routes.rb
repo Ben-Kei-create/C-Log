@@ -21,7 +21,7 @@ scope module: :public do
   resources :impressions, only: [:new, :create, :show, :edit, :update, :index]
   get '/customers/:id/comment' => 'customers#comment', as: 'comment'
   get '/customers/:customer_id/comment/:id' => 'customers#comment_detail', as: 'comment_detail'
-  get 'customers/unsubscribe' => 'customers#unsubscribe'
+  get '/customers/unsubscribe' => 'customers#unsubscribe'
   resources :customers, only: [:show, :edit, :update]
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
   delete '/customers/:id/comment' => 'customers#destroy', as: 'destroy_comment'
@@ -33,8 +33,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 namespace :admin do
   root to: "homes#top"
   resources :messages, only: [:new, :create, :show, :edit, :update, :destroy]
-  resources :customers, only: [:index]
-  get 'admin/comments' => 'customers#comments', as: 'comments'
+  resources :customers, only: [:index, :show]
+  get '/comments' => 'customers#comments'
 end
 end
 # # resources :genres, only: [:index, :create, :edit, :update]
