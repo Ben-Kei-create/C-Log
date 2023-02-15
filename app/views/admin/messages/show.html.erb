@@ -1,24 +1,67 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle"><i class="fas fa-pen-square"></i><%= '  ' %>Message show</h2>
-<%= flash[:notice] %>
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-pen-square"></i><%= '  ' %>Message show</h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white"></h4>
+    </div>
+      <%= flash[:notice] %>
 </nav>
-    <div class="row mt-5">
-        <div class="col-3"></div>
-          <div class="col-3">
-            <h4>投稿日：<%= @message.created_at %></h4><br>
-            <h4>題名：<%= @message.title %></h4><br>
-            <h4>本文：<%= @message.information %><br>
-          </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-3"></div>
-        <div class="col-3">
-        <h4>
-        <%= link_to "Message Listへ", admin_root_path, class: "btn badge-dark btn-md" %>
+
+    <div class="row mt-4 text-right">
+      <div class="col-md-11">
+                <%= link_to "Message Listへ", admin_root_path, class: "btn badge-dark btn-md" %>
         <%= link_to "編集する", edit_admin_message_path(@message.id), class: "btn badge-dark btn-md" %>
-        <%= link_to "投稿する▶︎",new_admin_message_path, class: "btn badge-dark btn-md" %>
+        <%= link_to "投稿する︎",new_admin_message_path, class: "btn badge-dark btn-md" %>
         <%= link_to "削除", admin_message_path(@message), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn badge-danger btn-md" %>
-        </h4>
-        </div>
+      </div>
     </div>
+
+    <div class="row mt-3">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <table class="table table-dark text-center mt-3">
+          <thead class="text-left">
+            <tr>
+              <th>
+                <h4>
+                  投稿日
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <%= @message.created_at %>
+                </h4>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h4>
+                  題名
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <%= @message.title %>
+                </h4>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h4>
+                  本文
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <%= @message.information %>
+                </h4>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
