@@ -11,7 +11,7 @@ class Admin::CustomersController < ApplicationController
    @impression = @customer.impressions.order(created_at: :desc).first
   end
 
-  #管理者が、会員『全ての』コメントを見るために必要なページです。
+  #管理者が、会員『全ての』コメント一覧を見るために必要なページです。
   def comments
    @reviews = PostComment.all
   # @post_comments = PostComment.where(customer_id: @customer)
@@ -23,5 +23,10 @@ class Admin::CustomersController < ApplicationController
    @customer = Customer.find(params[:id])
    @profile_image = @customer.profile_image
    @post_comments = PostComment.where(customer_id: @customer).page(params[:page]).per(3)
+  end
+
+  #管理者が、会員『一人の』コメントの詳細を見るために必要なページです。
+  def comment_detail
+
   end
 end
