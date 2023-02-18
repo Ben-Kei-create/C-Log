@@ -21,18 +21,16 @@
         <table class="table table-dark text-center mt-3">
           <thead class="text-left">
             <tr>
-              <th style = "size">
+              <th style="width: 30%">
                 <h4>
                   レビューをした日
                 </h4>
               </th>
-            </tr>
-            <tr class="text-center">
-              <td>
-                <h5>
+              <th style="width: 70%">
+                <h4>
                   <%= @comment_detail.created_at %>
-                </h5>
-              </td>
+                </h4>
+              </th>
             </tr>
           </thead>
           <tbody class="text-left">
@@ -42,8 +40,6 @@
                   感想レビュー
                 </h4>
               </th>
-            </tr>
-            <tr class="text-center">
               <td>
                 <h5>
                 　<%= @comment_detail.comment %>
