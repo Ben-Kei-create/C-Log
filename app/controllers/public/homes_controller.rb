@@ -1,4 +1,5 @@
 class Public::HomesController < ApplicationController
+
   def top
     @messages = Message.limit(6).order('id DESC')
     @impressions = Impression.all

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <h2 class="pagetitle">
-        <i class="fas fa-users"></i><%= '  ' %>Comments List
+        <i class="fas fa-comments"></i><%= '  ' %>Comments List
       </h2>
     </div>
     <div class="row">
@@ -38,11 +38,12 @@
             <tbody>
               <tr>
                 <td>
-                  <%= reviews.comment %>
+                  <%= reviews.customer_id %>
                   <%#= link_to customer.id, admin_message_path(customer.id), class:"table_link" %>
                 </td>
                 <td>
-                  <%#= reviews.name %>
+                  <%= reviews.comment %>
+                <%#= reviews.name %>
                 </td>
                 <!--<td>-->
                 <!--  <%#= customer.email %>-->

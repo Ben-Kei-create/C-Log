@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-# # Cinema Logbook
+
  def new
   @impression = Impression.new
  end

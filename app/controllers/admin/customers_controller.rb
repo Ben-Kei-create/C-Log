@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
 
   def index
    @customers = Customer.all
-   @customers = Customer.page(params[:page]).per(2)
+   @customers = Customer.page(params[:page]).per(15)
    end
 
   def show
@@ -11,13 +11,14 @@ class Admin::CustomersController < ApplicationController
    @impression = @customer.impressions.order(created_at: :desc).first
   end
 
-  #管理者が、"全ての"会員がしたコメントの一覧を見ることができるページです。
+  #管理者が、会員『全ての』コメントを見るために必要なページです。
   def comments
    @reviews = PostComment.all
-  #    @reviews = PostComment.where(movie_id: params[:id], customer_id: pa)
+  # @post_comments = PostComment.where(customer_id: @customer)
+  #  @reviews = PostComment.where(movie_id: params[:id], customer_id: pa)
   end
 
-  #管理者が、一人会員のコメント一覧をみるために必要なページです。
+  #管理者が、会員『一人の』コメント一覧を見るために必要なページです。
   def customer_comments
    @customer = Customer.find(params[:id])
    @profile_image = @customer.profile_image
