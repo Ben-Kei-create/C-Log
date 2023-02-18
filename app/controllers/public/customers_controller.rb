@@ -34,7 +34,7 @@ class Public::CustomersController < ApplicationController
 
   def destroy
    post_comment = PostComment.find_by(id: params[:id])
-   post_comment.delete  # データ（レコード）を削除
+   post_comment.delete
    redirect_to comment_path(current_customer)  # 投稿一覧画面へリダイレクト
   end
 

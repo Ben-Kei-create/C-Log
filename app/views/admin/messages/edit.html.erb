@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-rss"></i><%= '  ' %>Message edit</h2>
+      <h2 class="pagetitle"><i class="fas fa-envelope-open-text"></i><%= '  ' %>Message edit</h2>
     </div>
     <div class="row">
       <h4 class="text-white">会員へ連絡した内容を編集します。</h4>
@@ -9,11 +9,15 @@
       <%= flash[:notice] %>
 </nav>
 
-    <div class="row mt-5 justify-content-md-center">
-      <div class="col-1"></div>
-      <div class="col-3">
+    <div class="row mt-4 text-right">
+      <div class="col-md-11">
       <%= link_to "Message Showへ", admin_message_path(@message.id), class: "btn badge-dark btn-md" %>
       </div>
+    </div>
+
+    <div class="row mt-5 justify-content-md-center">
+      <div class="col-1"></div>
+      <div class="col-3">      </div>
       <div class="col-4"></div>
     </div>
     <div class="row mt-3">
@@ -39,16 +43,11 @@
           </tbody>
         </table>
       </div>
-      <div class="col-5">
-      </div>
     </div>
-
     <div class="row">
       <div class="col-4"></div>
-      <div class="col-4">
-      <%= f.submit '変更を保存', class: "btn btn-success btn-md" %>
+      <%= f.submit '保存', class: "btn btn-success btn-md" %>
       <% end %>
       </div>
-      <div class="col-4"></div>
     </div>
   </div>

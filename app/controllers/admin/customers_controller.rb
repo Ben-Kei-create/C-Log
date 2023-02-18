@@ -27,6 +27,7 @@ class Admin::CustomersController < ApplicationController
 
   #管理者が、会員『一人の』コメントの詳細を見るために必要なページです。
   def comment_detail
-
+   @customer = Customer.find(params[:id])
+   @customer_comment_detail = PostComment.find(params[:id])
   end
 end

@@ -4,14 +4,14 @@
       <h2 class="pagetitle"><i class="fas fa-book-reader"></i><%= '  ' %>Comment Detail</h2>
     </div>
     <div class="row">
-      <h4 class="text-white">○さんのコメントの詳細です。</h4>
+      <h4 class="text-white">コメントの詳細です。</h4>
     </div>
       <%= flash[:notice] %>
 </nav>
 
     <div class="row mt-4 text-right">
       <div class="col-md-11">
-        <%#= link_to "Reviewへ", comment_path(current_customer), class: 'btn btn-dark btn-md' %>
+        <%= link_to "Comment Showへ", admin_customer_comments_path(@customer.id), class: 'btn btn-dark btn-md' %>
       </div>
     </div>
 
@@ -28,7 +28,7 @@
               </th>
               <th style="width: 70%">
                 <h4>
-                  <%#= @comment_detail.created_at %>
+                  <%= @customer_comment_detail.created_at %>
                 </h4>
               </th>
             </tr>
@@ -42,7 +42,7 @@
               </th>
               <td>
                 <h5>
-                　<%#= @comment_detail.comment %>
+                  <%= @customer_comment_detail.comment %>
                 </h5>
               </td>
             </tr>

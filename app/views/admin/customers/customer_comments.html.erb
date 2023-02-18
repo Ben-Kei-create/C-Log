@@ -35,17 +35,17 @@
                   <%= post_comment.created_at %>
                 </td>
                 <td>
-                  <%= link_to movie_path(post_comment.movie_id) do %>
+                  <%= link_to movie_path(post_comment.movie_id), class:"table_link" do %>
                   <%= post_comment.movie_id %>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to comment_detail_path(post_comment.customer_id, post_comment.id) do %>
+                  <%= link_to admin_path(post_comment.customer_id, post_comment.id), class:"table_link" do %>
                   <%= post_comment.comment %>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to "削除", destroy_comment_path(post_comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                  <%= link_to "削除", destroy_comment_path(post_comment.id), method: :delete, class:"table_link", "data-confirm" => "本当に削除しますか？" %>
                 </td>
               <tr>
             <% end %>
