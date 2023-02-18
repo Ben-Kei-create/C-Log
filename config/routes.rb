@@ -36,11 +36,6 @@ namespace :admin do
   resources :customers, only: [:index, :show]
   get '/comments' => 'customers#comments'
   get '/customers/:id/comments' => 'customers#customer_comments', as: 'customer_comments'
+  get '/customers/:customer_id/comments/:id' => 'customers#comment_detail'
 end
 end
-# # resources :genres, only: [:index, :create, :edit, :update]
-# # patch 'order_details/:id' => 'order_details#update'
-# # resources :orders, only: [:show, :edit, :update]
-# # post 'items' => 'items#create'
-# # patch 'items/:id' => 'items#update'
-# # patch 'customers/:id/edit' => 'customers#update'
