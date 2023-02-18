@@ -29,7 +29,7 @@
                 </th>
                 <th style="width: 50%">
                   <h4>
-                    氏名(フリガナ)
+                    レビュー内容
                   </h4>
                 </th>
               </tr>
@@ -38,8 +38,8 @@
             <tbody>
               <tr>
                 <td>
-                  <%= reviews.customer_id %>
-                  <%#= link_to customer.id, admin_message_path(customer.id), class:"table_link" %>
+                  <%= link_to reviews.customer_id, admin_customer_comments_path(reviews.customer_id), class:"table_link" %>
+                  <%#= link_to customer.id, admin_message_path(customer.id) %>
                 </td>
                 <td>
                   <%= reviews.comment %>
