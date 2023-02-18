@@ -22,12 +22,14 @@ class Admin::CustomersController < ApplicationController
   def customer_comments
    @customer = Customer.find(params[:id])
    @profile_image = @customer.profile_image
-   @post_comments = PostComment.where(customer_id: @customer).page(params[:page]).per(3)
+   @post_comments = PostComment.where(customer_id: @customer).page(params[:page]).per(15)
   end
 
   #管理者が、会員『一人の』コメントの詳細を見るために必要なページです。
   def comment_detail
-   @customer = Customer.find(params[:id])
+   # @customer = Customer.find(params[:id])
    @customer_comment_detail = PostComment.find(params[:id])
+   # @customer_comment_detail = PostComment.where(customer_id: current_customer.id).page(params[:page]).per(15)
+   #@customer_comment_detail = PostComment.where(customer_id: @customer).page(params[:page]).per(15)
   end
 end
