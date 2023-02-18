@@ -11,6 +11,12 @@
       <%= flash[:notice] %>
 </nav>
 
+    <div class="row mt-4 text-right">
+      <div class="col-md-11">
+        <%= link_to "Message Listへ", admin_root_path, class: "btn badge-dark btn-sm" %>
+      </div>
+    </div>
+
       <div class="row mt-5 justify-content-md-center">
         <div class="col-1"></div>
         <div class="col-3">
@@ -23,7 +29,6 @@
             <%= form_with model: @message, url: admin_messages_path, method: :post do |f| %>
             <h4>タイトル</h4><%= f.text_field :title, placeholder: "管理者より連絡", size: "40x20" %>
             <h4>本文<%= ' ' %></h4><%= f.text_area :information, placeholder: "新しい映画コンテンツが増えました！", size: "40x10" %><br>
-            <%= link_to "Message Listへ", admin_root_path, class: "btn badge-dark btn-sm" %>
             <%= f.submit '投稿', class: "btn btn-dark btn-sm disabled" %>
             <% end %>
           </div>
