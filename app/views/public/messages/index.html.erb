@@ -1,11 +1,18 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle"><i class="fas fa-pen-square"></i>PICK UP NEWS LIST</h2>
-<%= flash[:notice] %>
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-pen-square"></i>PICK UP NEWS LIST</h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white">これまでのニュースの一覧です。</h4>
+    </div>
+      <%= flash[:notice] %>
 </nav>
-    <div class="row mt-4">
-      <div class="col-2"></div>
-        <div class="col-8">
+
+
+    <div class="row mt-4 text-right">
+      <div class="col-1"></div>
+      <div class="col-md-10">
           <table class="table table-bordered text-center">
             <thead class="thead-dark">
               <tr>
@@ -26,6 +33,6 @@
           </table>
           <%= paginate @messages %>
         </div>
-      <div class="col-2"></div>
+      <div class="col-1"></div>
     </div>
 
