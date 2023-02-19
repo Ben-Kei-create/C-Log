@@ -40,14 +40,13 @@
               <th><h4>本文</h4></th>
               <td><h4><%= f.text_area :information, size: "40x20"  %></h4></td>
             </tr>
+            <tr>
+              <th colspan="1"></th>
+              <td><h4><%= f.submit '保存', class: "btn btn-success btn-md" %></h4></td>
+            </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4"></div>
-      <%= f.submit '保存', class: "btn btn-success btn-md" %>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
       <h2 class="pagetitle"><i class="fab fa-grav	"></i><%= '  ' %>Watch List<%= '  ' %><i class="fab fa-gulp"></i></h2>
     </div>
     <div class="row">
-      <h4 class="text-white">Watch!に登録した作品です。</h4>
+      <h4 class="text-white">あなたがWatch!に登録した作品です。</h4>
     </div>
       <%= flash[:notice] %>
 </nav>
@@ -31,7 +31,7 @@
                   <%= watch.created_at %>
                 </td>
                 <td>
-                  <%= link_to movie_path(watch.movie_id) do %>
+                  <%= link_to movie_path(watch.movie_id), class:"table_link" do %>
                   <%= watch.movie_id %>
                   <% end %>
                 </td>

@@ -13,7 +13,7 @@ class Public::WatchesController < ApplicationController
   end
 
   def index
-    @watch = Watch.where(customer_id: current_customer.id, movie_id: params[:movie_id])
-    @watch = Watch.page(params[:page]).per(15)
+    @watch = Watch.where(customer_id: current_customer.id)
+    @watch = @watch.page(params[:page]).per(15)
   end
 end

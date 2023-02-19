@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def comment
-   @post_comments = PostComment.where(customer_id: current_customer.id).page(params[:page]).per(3)
+   @post_comments = PostComment.where(customer_id: current_customer.id).page(params[:page]).per(15)
   end
 
   def destroy

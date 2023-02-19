@@ -34,7 +34,7 @@
                   <%= favorite.created_at %>
                 </td>
                 <td>
-                  <%= link_to movie_path(favorite.movie_id) do %>
+                  <%= link_to movie_path(favorite.movie_id), class:"table_link" do %>
                   <%= favorite.movie_id %>
                   <% end %>
                 </td>

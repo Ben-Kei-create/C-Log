@@ -40,13 +40,18 @@
               <% if customer_signed_in? %>
               <div class="cusotmer">
                 <li>
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
+                  <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
+                  <i class="fas fa-user"></i><%= "  " %><span>M</span>ypage
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
-                  <i class="fas fa-user"></i><%= "  " %><span>M</span>ypage
+                  <%= link_to messages_path, class: 'nav-link text-white' do %>
+                  <i class="far fa-newspaper"></i><%= "  " %><span>N</span>ews
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
+                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
                   <% end %>
                 </li>
                 <li>

@@ -13,8 +13,8 @@ class Public::FavoritesController < ApplicationController
   end
 
   def index
-    @favorite = Favorite.where(customer_id: current_customer.id, movie_id: params[:movie_id])
-    @favorite = Favorite.page(params[:page]).per(3)
+    @favorite = Favorite.where(customer_id: current_customer.id)
+    @favorite = @favorite.page(params[:page]).per(15)
   end
 
 end

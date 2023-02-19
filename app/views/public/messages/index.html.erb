@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-pen-square"></i>PICK UP NEWS LIST</h2>
+      <h2 class="pagetitle"><i class="far fa-newspaper"></i><%= '  ' %>Pick Up News List</h2>
     </div>
     <div class="row">
       <h4 class="text-white">これまでのニュースの一覧です。</h4>
@@ -24,7 +24,7 @@
            <% @messages.each do |me| %>
             <tbody>
               <tr>
-                <td><%= link_to me.created_at, message_path(me) %></td>
+                <td><%= link_to me.created_at, message_path(me), class:"table_link" %></td>
                 <td><%= me.title %></td>
                 <td><%= me.information %></td>
               <tr>

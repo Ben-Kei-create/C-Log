@@ -22,8 +22,8 @@
             <%= form_with model: @impression, url: impressions_path, method: :post do |f| %>
             <h3>あなたが今一番オススメしたい映画を登録</h3><%= f.text_field :best_movie, placeholder: "Star Wars", size: "40x20" %><p>
             <h3>映画の感想を登録<%= ' ' %></h3><%= f.text_area :recommend_movie, placeholder: "初めて観たSF映画でした。懐かしいジェダイが復活するなどで感動もあり、圧巻のラストシーンでした。最高傑作でした！", size: "40x5" %><br>
-            <%= link_to "My pageへ", customer_path(current_customer), class: "btn badge-dark btn-md mt-2"%>
-            <%= f.submit '投稿', class: "btn btn-dark btn-md disabled mt-2" %>
+            <%= link_to "My Pageへ", customer_path(current_customer), class: "btn badge-dark btn-md mt-2"%>
+            <%= f.submit '投稿', class: "btn btn-success btn-md disabled mt-2" %>
             <% end %>
           </div>
         <div class="col-5 mt-5">
