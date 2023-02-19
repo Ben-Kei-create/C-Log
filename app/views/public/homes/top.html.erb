@@ -24,12 +24,12 @@
     </div>
 
   <% if customer_signed_in? %>
-  <div class="row mt-3">
+  <div class="row mt-4">
       <div class="col-4"></div>
         <h2><i class="fas fa-rss"></i><%= '  '  %>IMPRESSION</h2>
       <div class="col">
-        <%= link_to "投稿する▶︎︎", new_impression_path, class: "btn badge-dark btn-md" %>
-        <%= link_to "Impression Listへ▶︎", impressions_path, class: "btn badge-dark btn-md" %>
+        <%= link_to "新規投稿する︎︎", new_impression_path, class: "btn badge-dark btn-md" %>
+        <%= link_to "Impression Listへ︎", impressions_path, class: "btn badge-dark btn-md" %>
       </div>
       </div>
 
@@ -38,12 +38,12 @@
         <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
           <div class="card-header">投稿者id：<%= im.customer_id %></div>
             <div class="card-body">
-              <h4 class="card-text text-warning">Best Movie!</h4>
-              <p class="card-title bg-secondary"><%= im.best_movie.truncate(20) %></p>
-              <h4 class="card-text text-warning">Impression!</h4>
-              <p class="card-title bg-secondary"><%= im.recommend_movie.truncate(20) %></p>
+              <h4 class="card-text text-light">Best Movie!</h4>
+              <p class="card-title text-light bg-alert-secondary underline"><%= im.best_movie.truncate(20) %></p>
+              <h4 class="card-text text-light">Impression!</h4>
+              <p class="card-title text-light bg-alert-secondary underline"><%= im.recommend_movie.truncate(20) %></p>
             </div>
-            <%= link_to "詳しくみる▶︎", impression_path(im), class: "btn badge-dark btn-md" %>
+            <%= link_to "詳しくみる︎", impression_path(im), class: "btn badge-dark btn-md" %>
         </div>
       <% end %>
     </div>
@@ -58,13 +58,15 @@
 
     <div class="row mt-4 justify-content-md-center">
         <% @messages.each do |me| %>
-          <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-            <div class="card-header text-center text-dark">投稿日：<%= l me.created_at, format: :short %></div>
+          <div class="card text-light bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+            <div class="card-header text-center text-light">投稿日：<%= l me.created_at, format: :short %></div>
               <div class="card-body">
-                <h4 class="card-title text-dark">タイトル</h4><%= strip_tags(me.title).truncate(20) %><p>
-                  <h4 class="card-text">本文</h4><%= strip_tags(me.information).truncate(20) %><p>
+                <h4 class="card-text text-light">タイトル</h4>
+                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.title).truncate(20) %><p>
+                <h4 class="card-text text-light">本文</h4>
+                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.information).truncate(20) %><p>
               </div>
-              <%= link_to "詳しくみる▶︎", message_path(me), class: "btn badge-light btn-md" %>
+              <%= link_to "詳しくみる︎", message_path(me), class: "btn badge-dark btn-md" %>
           </div>
         <% end %>
     </div>
@@ -80,10 +82,10 @@
         <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
           <div class="card-header">投稿者id：<%= im.customer_id %></div>
             <div class="card-body">
-              <h4 class="card-text text-warning">Best Movie!</h4>
-              <p class="card-title bg-secondary"><%= im.best_movie.truncate(20) %></p>
-              <h4 class="card-text text-warning">Impression!</h4>
-              <p class="card-title bg-secondary"><%= im.recommend_movie.truncate(20) %></p>
+              <h4 class="card-text text-light">Best Movie!</h4>
+              <p class="card-title text-light bg-alert-secondary underline"><%= im.best_movie.truncate(20) %></p>
+              <h4 class="card-text text-light">Impression!</h4>
+              <p class="card-title text-light bg-alert-secondary underline"><%= im.recommend_movie.truncate(20) %></p>
             </div>
         </div>
       <% end %>
@@ -95,13 +97,14 @@
 
     <div class="row mt-4 justify-content-md-center">
         <% @messages.each do |me| %>
-          <div class="card text-dark bg-light mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-            <div class="card-header text-center text-dark">投稿日：<%= l me.created_at, format: :short %></div>
+          <div class="card text-light bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+            <div class="card-header text-center text-light">投稿日：<%= l me.created_at, format: :short %></div>
               <div class="card-body">
-                <h4 class="card-title text-dark">タイトル</h4><%= strip_tags(me.title).truncate(20) %><p>
-                  <h4 class="card-text">本文</h4><%= strip_tags(me.information).truncate(20) %><p>
+                <h4 class="card-text text-light">タイトル</h4>
+                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.title).truncate(20) %><p>
+                <h4 class="card-text text-light">本文</h4>
+                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.information).truncate(20) %><p>
               </div>
-              <%#= link_to "詳しくみる▶︎", message_path(me), class: "btn badge-light btn-md" %>
           </div>
         <% end %>
     </div>
