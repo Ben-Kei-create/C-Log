@@ -128,6 +128,30 @@
                 </h4>
               </th>
             </tr>
+            <tr>
+              <th>
+                <h4>
+                  ステータス
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <% if @customer.is_deleted %>
+                    <p class="text-danger">
+                      <strong>
+                        退会済み
+                      </strong>
+                    </p>
+                  <% else %>
+                    <p class="text-success">
+                      <strong>
+                        有効
+                      </strong>
+                    </p>
+                  <% end %>
+                </h4>
+              </th>
+            </tr>
           </tbody>
         </table>
       </div>

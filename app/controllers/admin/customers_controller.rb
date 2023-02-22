@@ -9,6 +9,7 @@ class Admin::CustomersController < ApplicationController
    @customer = Customer.find(params[:id])
    @profile_image = @customer.profile_image
    @impression = @customer.impressions.order(created_at: :desc).first
+   
   end
 
   #管理者が、会員『全ての』コメント一覧を見るために必要なページです。

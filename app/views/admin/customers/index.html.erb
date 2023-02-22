@@ -64,6 +64,21 @@
                 <td>
                   <%= customer.telephone_number %>
                 </td>
+                <td>
+                  <% if customer.is_deleted %>
+                    <p class="text-danger">
+                      <strong>
+                        退会済み
+                      </strong>
+                    </p>
+                  <% else %>
+                    <p class="text-success">
+                      <strong>
+                        有効
+                      </strong>
+                    </p>
+                  <% end %>
+                </td>
               <tr>
             </tbody>
             <% end %>
