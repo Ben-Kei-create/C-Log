@@ -23,8 +23,8 @@ scope module: :public do
   get '/customers/:customer_id/comment/:id' => 'customers#comment_detail', as: 'comment_detail'
   get '/customers/unsubscribe' => 'customers#unsubscribe'
   resources :customers, only: [:show, :edit, :update]
-  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
   delete '/customers/:id/comment' => 'customers#destroy', as: 'destroy_comment'
+  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal' 
 end
 
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

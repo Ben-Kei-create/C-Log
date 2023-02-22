@@ -1,111 +1,115 @@
 <%= flash[:notice] %>
+
   <div class="container">
 
-    <div class="row">
-      <div class="slider">
-        <%= image_tag 'museum.jpg'  %>
-        <%= image_tag 'lady.jpg'    %>
-        <%= image_tag 'popcorn.jpg' %>
-        <%= image_tag 'monoqro.jpg' %>
-      </div>
-    </div>
-
-    <div class="row mx-auto">
-      <div class="col">
-        <h2 class="text-center"><i class="fas fa-heart"></i><%= '  '  %>Thank You!!</h2>
-        <h4 class="text-center">
-        <strong>CINEMA-LOG</strong>へようこそ。<br>
-        このサイトは、電子版の映画記録NOTEです。<br>
-        あなた自身のの映画生活を日々記録しながら、<br>
-        映画作品を選べる素敵なレビューサイトです。<br>
-        一緒に、映画の海へ飛び込みましょう。
-        <h4>
-      </div>
-    </div>
-
-  <% if customer_signed_in? %>
-  <div class="row mt-4">
-      <div class="col-4"></div>
-        <h2><i class="fas fa-rss"></i><%= '  '  %>IMPRESSION</h2>
-      <div class="col">
-        <%= link_to "新規投稿する︎︎", new_impression_path, class: "btn badge-dark btn-md" %>
-        <%= link_to "Impression Listへ︎", impressions_path, class: "btn badge-dark btn-md" %>
-      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <h2 class="text-center"><i class="fas fa-heart"></i><%= '  '  %>Thank You ! !</h2>
+          <h4 class="text-center">
+          『CINEMA-LOG』へようこそ。<br>
+          このサイトは、電子版の映画記録ノートです。<br>
+          あなた自身のの映画生活を日々記録しながら、<br>
+          映画作品を選べる素敵なレビューサイトです。<br>
+          一緒に、映画の海へ飛び込みましょう。
+          <h4>
+        </div>
       </div>
 
-    <div class="row mt-4 justify-content-md-center">
-      <% @impressions.each do |im| %>
-        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-          <div class="card-header">投稿者id：<%= im.customer_id %></div>
-            <div class="card-body">
-              <h4 class="card-text text-light">Best Movie!</h4>
-              <p class="card-title text-light bg-alert-secondary underline"><%= im.best_movie.truncate(20) %></p>
-              <h4 class="card-text text-light">Impression!</h4>
-              <p class="card-title text-light bg-alert-secondary underline"><%= im.recommend_movie.truncate(20) %></p>
+      <div class="row mt-4">
+        <div class="slider mt-1 mx-auto">
+          <%= image_tag 'museum.jpg'%>
+          <%= image_tag 'customer1.jpg'%>
+          <%= image_tag 'lady.jpg'%>
+          <%= image_tag 'popcorn.jpg'%>
+          <%= image_tag 'monoqro.jpg'%>
+          <%= image_tag 'title.jpg'%>
+          <%= image_tag 'cinemas.jpg'%>
+        </div>
+      </div>
+
+    <% if customer_signed_in? %>
+      <div class="row mt-4">
+        <div class="col-4"></div>
+          <h2><i class="fas fa-rss"></i><%= '  '  %>IMPRESSION</h2>
+        <div class="col">
+          <%= link_to "新規投稿する︎︎", new_impression_path, class: "btn badge-dark btn-md" %>
+          <%= link_to "Impression Listへ︎", impressions_path, class: "btn badge-dark btn-md" %>
+        </div>
+      </div>
+
+        <div class="row mt-4 justify-content-md-center">
+          <% @impressions.each do |im| %>
+            <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+              <div class="card-header">投稿者id：<%= im.customer_id %></div>
+                <div class="card-body">
+                  <h4 class="card-text text-light">Best Movie!</h4>
+                  <p class="card-title text-light bg-alert-secondary underline"><%= im.best_movie.truncate(20) %></p>
+                  <h4 class="card-text text-light">Impression!</h4>
+                  <p class="card-title text-light bg-alert-secondary underline"><%= im.recommend_movie.truncate(20) %></p>
+                </div>
+                <%= link_to "詳しくみる︎", impression_path(im), class: "btn badge-dark btn-md" %>
             </div>
-            <%= link_to "詳しくみる︎", impression_path(im), class: "btn badge-dark btn-md" %>
+          <% end %>
+        </div>
+
+        <div class="row mt-4 justify-content-md-center">
+          <div class="col-4"></div>
+            <h2 class="text-center"><i class="far fa-newspaper"></i><%= '  '  %>PICK UP NEWS</h2>
+          <div class="col">
+            <%= link_to "Pick Up News Listへ▶︎", messages_path, class: "btn badge-dark btn-md" %>
+          </div>
+        </div>
+
+        <div class="row mt-4 justify-content-md-center">
+            <% @messages.each do |me| %>
+              <div class="card text-light bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+                <div class="card-header text-center text-light">投稿日：<%= l me.created_at, format: :short %></div>
+                  <div class="card-body">
+                    <h4 class="card-text text-light">タイトル</h4>
+                      <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.title).truncate(20) %><p>
+                    <h4 class="card-text text-light">本文</h4>
+                      <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.information).truncate(20) %><p>
+                  </div>
+                  <%= link_to "詳しくみる︎", message_path(me), class: "btn badge-dark btn-md" %>
+              </div>
+            <% end %>
+        </div>
+
+      <% elsif admin_signed_in? %>
+        <div class="row mt-4 justify-content-md-center">
+            <h2><i class="fas fa-rss"></i><%= '  '  %>IMPRESSION</h2>
+          </div>
+        </div>
+
+        <div class="row mt-4 justify-content-md-center">
+          <% @impressions.each do |im| %>
+            <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+              <div class="card-header">投稿者id：<%= im.customer_id %></div>
+                <div class="card-body">
+                  <h4 class="card-text text-light">Best Movie!</h4>
+                  <p class="card-title text-light bg-alert-secondary underline"><%= im.best_movie.truncate(20) %></p>
+                  <h4 class="card-text text-light">Impression!</h4>
+                  <p class="card-title text-light bg-alert-secondary underline"><%= im.recommend_movie.truncate(20) %></p>
+                </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="row mt-4 justify-content-md-center">
+            <h2 class="text-center"><i class="far fa-newspaper"></i><%= '  '  %>PICK UP NEWS</h2>
+        </div>
+
+        <div class="row mt-4 justify-content-md-center">
+            <% @messages.each do |me| %>
+              <div class="card text-light bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
+                <div class="card-header text-center text-light">投稿日：<%= l me.created_at, format: :short %></div>
+                  <div class="card-body">
+                    <h4 class="card-text text-light">タイトル</h4>
+                      <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.title).truncate(20) %><p>
+                    <h4 class="card-text text-light">本文</h4>
+                      <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.information).truncate(20) %><p>
+                  </div>
+              </div>
+            <% end %>
         </div>
       <% end %>
-    </div>
-
-    <div class="row mt-4 justify-content-md-center">
-      <div class="col-4"></div>
-        <h2 class="text-center"><i class="far fa-newspaper"></i><%= '  '  %>PICK UP NEWS</h2>
-      <div class="col">
-        <%= link_to "Pick Up News Listへ▶︎", messages_path, class: "btn badge-dark btn-md" %>
-      </div>
-    </div>
-
-    <div class="row mt-4 justify-content-md-center">
-        <% @messages.each do |me| %>
-          <div class="card text-light bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-            <div class="card-header text-center text-light">投稿日：<%= l me.created_at, format: :short %></div>
-              <div class="card-body">
-                <h4 class="card-text text-light">タイトル</h4>
-                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.title).truncate(20) %><p>
-                <h4 class="card-text text-light">本文</h4>
-                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.information).truncate(20) %><p>
-              </div>
-              <%= link_to "詳しくみる︎", message_path(me), class: "btn badge-dark btn-md" %>
-          </div>
-        <% end %>
-    </div>
-
-  <% elsif admin_signed_in? %>
-    <div class="row mt-4 justify-content-md-center">
-        <h2><i class="fas fa-rss"></i><%= '  '  %>IMPRESSION</h2>
-      </div>
-    </div>
-
-    <div class="row mt-4 justify-content-md-center">
-      <% @impressions.each do |im| %>
-        <div class="card text-white bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-          <div class="card-header">投稿者id：<%= im.customer_id %></div>
-            <div class="card-body">
-              <h4 class="card-text text-light">Best Movie!</h4>
-              <p class="card-title text-light bg-alert-secondary underline"><%= im.best_movie.truncate(20) %></p>
-              <h4 class="card-text text-light">Impression!</h4>
-              <p class="card-title text-light bg-alert-secondary underline"><%= im.recommend_movie.truncate(20) %></p>
-            </div>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="row mt-4 justify-content-md-center">
-        <h2 class="text-center"><i class="far fa-newspaper"></i><%= '  '  %>PICK UP NEWS</h2>
-    </div>
-
-    <div class="row mt-4 justify-content-md-center">
-        <% @messages.each do |me| %>
-          <div class="card text-light bg-dark mb-4 d-inline-block mx-3" style="max-width: 20rem;">
-            <div class="card-header text-center text-light">投稿日：<%= l me.created_at, format: :short %></div>
-              <div class="card-body">
-                <h4 class="card-text text-light">タイトル</h4>
-                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.title).truncate(20) %><p>
-                <h4 class="card-text text-light">本文</h4>
-                  <p class="card-title text-light bg-dark underline2"><%= strip_tags(me.information).truncate(20) %><p>
-              </div>
-          </div>
-        <% end %>
-    </div>
-    <% end %>
