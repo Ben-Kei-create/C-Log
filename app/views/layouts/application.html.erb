@@ -10,7 +10,7 @@
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<!--スライドショー実装-->
+<!--スライドショーの実装に必要です-->
   <body class="d-flex flex-column vh-100" style="background-color:#c0c0c0">
     <header class="shadow-sm">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -35,84 +35,81 @@
               </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ml-auto">
-
-　　　　　　　<!--会員ページ-->
-              <% if customer_signed_in? %>
-              <div class="cusotmer">
-                <li>
-                  <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
-                  <i class="fas fa-user"></i><%= "  " %><span>M</span>ypage
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to messages_path, class: 'nav-link text-white' do %>
-                  <i class="far fa-newspaper"></i><%= "  " %><span>N</span>ews
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to movies_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-search"></i><%= "  " %><span>S</span>earch
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to impressions_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-rss"></i><%= "  " %><span>I</span>mpression
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to comment_path(current_customer), class: 'nav-link text-white' do %>
-                  <i class="fas fa-comment"></i><%= "  " %><span>R</span>eview
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to watches_path(current_customer), class: 'nav-link text-white' do %>
-                  <i class="fab fa-grav	"></i><%= "  " %><span>W</span>atch
-                  <% end %>
-                <li>
-                <li>
-                  <%= link_to favorites_path(current_customer), class: 'nav-link text-white' do %>
-                  <i class="fab fa-fort-awesome"></i><%= "  " %><span>L</span>ike
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogout
-                </li>
-              <% end %>
-              </div>
-
-　　　　　　　<!--管理者ページ-->
-              <% elsif admin_signed_in? %>
-              <div class="admin">
-                <li>
-                  <%= link_to admin_root_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-envelope"></i><%= "  " %><span>M</span>essage List
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to admin_customers_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-users"></i><%= "  " %><span>C</span>ustomer List
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to admin_comments_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-comments"></i><%= "  " %><span>C</span>omment List
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to destroy_admin_session_path, class: 'nav-link text-white', method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogout
-                  <% end %>
-                </li>
-              </div>
-              <% else %>
-
-　　　　　　<!--ゲストページ-->
+　　　　　　<!--会員のページで表示するヘッダー-->
+            <% if customer_signed_in? %>
+            <div class="cusotmer">
+              <li>
+                <%= link_to customer_path(current_customer), class: 'nav-link text-white' do %>
+                <i class="fas fa-user"></i><%= "  " %><span>M</span>ypage
+                <% end %>
+              </li>
+              <li>
+                <%= link_to messages_path, class: 'nav-link text-white' do %>
+                <i class="far fa-newspaper"></i><%= "  " %><span>N</span>ews
+                <% end %>
+              </li>
+              <li>
+                <%= link_to about_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-film"></i><%= "  " %><span>A</span>bout
+                <% end %>
+              </li>
+              <li>
+                <%= link_to movies_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-search"></i><%= "  " %><span>S</span>earch
+                <% end %>
+              </li>
+              <li>
+                <%= link_to impressions_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-rss"></i><%= "  " %><span>I</span>mpression
+                <% end %>
+              </li>
+              <li>
+                <%= link_to comment_path(current_customer), class: 'nav-link text-white' do %>
+                <i class="fas fa-comment"></i><%= "  " %><span>R</span>eview
+                <% end %>
+              </li>
+              <li>
+                <%= link_to watches_path(current_customer), class: 'nav-link text-white' do %>
+                <i class="fab fa-grav	"></i><%= "  " %><span>W</span>atch
+                <% end %>
+              <li>
+              <li>
+                <%= link_to favorites_path(current_customer), class: 'nav-link text-white' do %>
+                <i class="fab fa-fort-awesome"></i><%= "  " %><span>L</span>ike
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_customer_session_path, class: 'nav-link text-white', method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogout
+              </li>
+            <% end %>
+            </div>
+　　　　　　　<!--管理者のページで表示するヘッダー-->
+            <% elsif admin_signed_in? %>
+            <div class="admin">
+              <li>
+                <%= link_to admin_root_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-envelope"></i><%= "  " %><span>M</span>essage List
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_customers_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-users"></i><%= "  " %><span>C</span>ustomer List
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_comments_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-comments"></i><%= "  " %><span>C</span>omment List
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_admin_session_path, class: 'nav-link text-white', method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i><%= "  " %><span>L</span>ogout
+                <% end %>
+              </li>
+            </div>
+            <% else %>
+　　　　　　<!--ゲストのページで表示するヘッダー-->
             <div class="guest">
                 <li>
                   <%= link_to about_path, class: 'nav-link text-white' do %>
@@ -139,16 +136,13 @@
             </div>
           </div>
         </nav>
-      </header>
+    </header>
     <main class="mb-auto">
       <div class="fixed-bottom" style="background-color:#000000">
         <div class="row bg-black">
           <footer class="mx-auto text-align:center text-white">
             CopyRight Infratop.inc
-          <!--  <%#= image_tag 'app/assets/images/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg', width: '50%', height: '50%'  %>-->
-          <!--<img src="app/assets/images/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg">-->
           </footer>
-
           </div>
       </div>
     <%= yield %>

@@ -1,91 +1,189 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
-    <h2 class="pagetitle"><i class="fas fa-user"></i><%= '  ' %>My Page</h2>
-<%= flash[:notice] %>
+    <div class="row">
+      <h2 class="pagetitle"><i class="fas fa-user"></i><%= '  ' %>My Page</h2>
+    </div>
+    <div class="row">
+      <h4 class="text-white">マイページです。</h4>
+    </div>
+      <%= flash[:notice] %>
 </nav>
 
-    <div class="row justify-content-md-center mt-4">
+    <div class="row justify-content-md-center mt-5">
       <h4><%= image_tag @customer.get_profile_image(100,100) %></h4>
     </div>
     <div class="row justify-content-md-center">
       <h4><%= @customer.name %>さん</h4>
     </div>
-
-    <div class="row mt-5">
+    <div class="row mt-3">
       <div class="col-1"></div>
       <div class="col-5">
-      <h2>Profile</h2>
-        <table class="table table-striped table-dark text-center">
-          <thead>
-            <tr>
-              <th style="width: 40%"><h4>氏名</h4></th>
-              <th style="width: 60%"><h4><%= @customer.name %></h4></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th><h4>フリガナ</h4></th>
-              <th><h4><%= @customer.name_kana %></h4></th>
-            </tr>
-            <tr>
-              <th><h4>郵便番号</h4></th>
-              <th><h4><%= @customer.postal_code %></h4></th>
-            </tr>
-            <tr>
-              <th><h4>住所</h4></th>
-              <th><h4><%= @customer.address %></h4></th>
-            </tr>
-            <tr>
-              <th><h4>電話番号</h4></th>
-              <th><h4><%= @customer.telephone_number %></h4></th>
-            </tr>
-            <tr>
-              <th><h4>メールアドレス</h4></th>
-              <th><h4><%= @customer.email %></h4></th>
-            </tr>
-            <tr>
-              <th colspan="1"><h4></h4></th>
-              <th><h4><%= ' ' %><%= link_to "Profileを変更する", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %></h4></th>
-            </tr>
-          </tbody>
-        </table>
+        <h2>Profile</h2>
+          <table class="table table-striped table-dark text-center">
+            <thead>
+              <tr>
+                <th style="width: 40%">
+                  <h4>
+                    氏名
+                  </h4>
+                </th>
+                <th style="width: 60%">
+                  <h4>
+                    <%= @customer.name %>
+                  </h4>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  <h4>
+                    フリガナ
+                  </h4>
+                </th>
+                <th>
+                  <h4>
+                    <%= @customer.name_kana %>
+                  </h4>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <h4>
+                    郵便番号
+                  </h4>
+                </th>
+                <th>
+                  <h4>
+                    <%= @customer.postal_code %>
+                  </h4>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <h4>
+                    住所
+                  </h4>
+                </th>
+                <th>
+                  <h4>
+                    <%= @customer.address %>
+                  </h4>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <h4>
+                    電話番号
+                  </h4>
+                </th>
+                <th>
+                  <h4>
+                    <%= @customer.telephone_number %>
+                  </h4>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <h4>
+                    メールアドレス
+                  </h4>
+                </th>
+                <th>
+                  <h4>
+                    <%= @customer.email %>
+                  </h4>
+                </th>
+              </tr>
+              <tr>
+                <th colspan="1"></th>
+                <th>
+                  <h4>
+                    <%= ' ' %><%= link_to "Profileを変更する", edit_customer_path(current_customer), class: 'btn btn-dark btn-md' %>
+                  </h4>
+                </th>
+              </tr>
+            </tbody>
+          </table>
       </div>
 
       <div class="col-5">
-      <h2>Impression
-      </h2>
-        <table class="table table-striped table-dark text-center">
-          <thead>
-            <tr>
-              <th style="width: 40%"><h4>一番好きな映画</h4></th>
-              <th style="width: 60%"><h4><%= @impression ? @impression.best_movie : "投稿はまだありません" %></h4></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th><h4>オススメの理由<h4></th>
-              <th><h4><%= @impression ? @impression.recommend_movie : "投稿はまだありません" %><h4></th>
-            </tr>
-          </tbody>
-        </table>
+        <h2>Impression</h2>
+          <table class="table table-striped table-dark text-center">
+            <thead>
+              <tr>
+                <th style="width: 40%">
+                  <h4>
+                    一番好きな映画
+                  </h4>
+                </th>
+                <th style="width: 60%">
+                  <h4>
+                    <%= @impression ? @impression.best_movie : "投稿はまだありません" %>
+                  </h4>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  <h4>
+                    オススメの理由
+                  <h4>
+                </th>
+                <th>
+                  <h4>
+                    <%= @impression ? @impression.recommend_movie : "投稿はまだありません" %>
+                  <h4>
+                </th>
+              </tr>
+            </tbody>
+          </table>
 
-        <h2>Favorite
-        <table class="table table-striped table-dark text-center">
-          <thead>
-            <tr>
-              <th style="width: 40%"><h4>いいねした作品数</h4></th>
-              <th style="width: 30%"><h4><%= Favorite.where(customer_id: current_customer.id).count %>回</h4></th>
-              <th style="width: 20%"><h4><%= ' ' %><%= link_to "いいね作品をみる", favorites_path(current_customer), class: 'btn btn-dark btn-md' %></h4></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th><h4>鑑賞した作品数<h4></th>
-              <th><h4><%= Watch.where(customer_id: current_customer.id).count %>回<h4></th>
-              <th><h4><%= ' ' %><%= link_to "鑑賞作品をみる", watches_path(current_customer), class: 'btn btn-dark btn-md' %></h2></h4></th>
-            </tr>
-          </tbody>
-        </table>
-        <h2>Review<%= ' ' %><%= link_to "映画レビューを振り返る", comment_path(current_customer), class: 'btn btn-dark btn-md' %></h2>
+        <h2>Favorite</h2>
+          <table class="table table-striped table-dark text-center">
+            <thead>
+              <tr>
+                <th style="width: 40%">
+                  <h4>
+                    いいねした作品数
+                  </h4>
+                </th>
+                <th style="width: 30%">
+                  <h4>
+                    <%= Favorite.where(customer_id: current_customer.id).count %>回
+                  </h4>
+                </th>
+                <th style="width: 20%">
+                  <h4><%= ' ' %>
+                    <%= link_to "いいね作品をみる", favorites_path(current_customer), class: 'btn btn-dark btn-md' %>
+                  </h4>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  <h4>
+                    鑑賞した作品数
+                  <h4>
+                </th>
+                <th>
+                  <h4>
+                    <%= Watch.where(customer_id: current_customer.id).count %>回
+                  <h4>
+                </th>
+                <th>
+                  <h4><%= ' ' %>
+                    <%= link_to "鑑賞作品をみる", watches_path(current_customer), class: 'btn btn-dark btn-md' %>
+                  </h4>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+            <h2>
+              Review<%= ' ' %><%= link_to "映画レビューを振り返る", comment_path(current_customer), class: 'btn btn-dark btn-md' %>
+            </h2>
       </div>
     </div>
+  </div>
