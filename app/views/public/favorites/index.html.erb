@@ -9,8 +9,6 @@
       <%= flash[:notice] %>
 </nav>
 
-
-
     <div class="row mt-4 text-right">
       <div class="col-md-11">
         <%= link_to "My pageへ", customer_path(current_customer), class: 'btn btn-dark btn-md' %>
@@ -19,30 +17,31 @@
 
     <div class="row mt-4">
       <div class="col-1"></div>
-        <div class="col-10">
-          <table class="table table-bordered text-center table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th style="width: 50%"><h4>追加日時</h4></th>
-                <th style="width: 50%"><h4>映画作品番号</h4></th>
-              </tr>
-            </thead>
-           <% @favorite.each do |favorite| %>
-            <tbody>
-              <tr>
-                <td>
-                  <%= favorite.created_at %>
-                </td>
-                <td>
-                  <%= link_to movie_path(favorite.movie_id), class:"table_link" do %>
-                  <%= favorite.movie_id %>
-                  <% end %>
-                </td>
-              <tr>
-            </tbody>
-            <% end %>
-          </table>
-          <%= paginate @favorite %>
-        </div>
-      <div class="col-1"></div>
-  </div>
+      <div class="col-10">
+        <table class="table table-bordered text-center table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th style="width: 50%"><h4>追加日時</h4></th>
+              <th style="width: 50%"><h4>映画作品番号</h4></th>
+            </tr>
+          </thead>
+         <% @favorite.each do |favorite| %>
+          <tbody>
+            <tr>
+              <td>
+                <%= favorite.created_at %>
+              </td>
+              <td>
+                <%= link_to movie_path(favorite.movie_id), class:"table_link" do %>
+                <%= favorite.movie_id %>
+                <% end %>
+              </td>
+            <tr>
+          </tbody>
+          <% end %>
+        </table>
+        <%= paginate @favorite %>
+      </div>
+    　<div class="col-1"></div>
+  　</div>
+　</div>
