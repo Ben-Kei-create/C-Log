@@ -20,7 +20,8 @@ class Public::CustomersController < ApplicationController
  end
 
  def edit
-   @customer = Customer.find(current_customer.id)
+   # @customer = Customer.find(current_customer.id)
+   @customer = Customer.find(params[:id])
  end
 
   def update

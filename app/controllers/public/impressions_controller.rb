@@ -7,7 +7,7 @@ class Public::ImpressionsController < ApplicationController
   def create
     @impression = current_customer.impressions.build(impression_params)
     if @impression.save!
-      redirect_to root_path
+      redirect_to customer_path(current_customer)
     else
       render :new
     end

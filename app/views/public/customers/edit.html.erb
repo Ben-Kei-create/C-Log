@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark" style="background-color:#696969">
   <div class="container">
     <div class="row">
-      <h2 class="pagetitle"><i class="fas fa-pen"></i><%= '  ' %>Customer edit</h2>
+      <h2 class="pagetitle"><i class="fas fa-pen"></i><%= '  ' %>Customer Edit</h2>
     </div>
     <div class="row">
       <h4 class="text-white">Profileを編集します。</h4>
@@ -49,13 +49,13 @@
             </tr>
             <tr>
               <td class="text-center" style="width: 40%"><h4>メールアドレス</td>
-              <td style="width: 60%"><h4><%= f.text_field :email, size: "30*30", placeholder: "0000000", autocomplete: "email" %></h4></td>
+              <td style="width: 60%"><h4><%= f.text_field :email, size: "30*30",autocomplete: "email" %></h4></td>
             </tr>
             <tr>
               <td colspan="1"></td>
               <td>
-                <%= f.submit "保存", class: "btn btn-success btn-md disabled"%><% end %>
-                <%= link_to '退会', customers_unsubscribe_path, class: "btn btn-danger btn-md disabled"%>
+                <%= f.submit "保存", class: "btn btn-success btn-md"%><% end %>
+                <%= link_to "退会", customers_unsubscribe_path, class: "btn btn-danger btn-md" %>
               </td>
             </tr>
           </tbody>
